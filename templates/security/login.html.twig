@@ -1,0 +1,18 @@
+
+<form action="{{ path('login') }}" method="post">
+
+        <input class="FormControl" type="email"  name="email" id="inputEmail" class="form-control"
+               placeholder="adresse mail" required/>
+
+         <input class="FormControl" type="password" name="password" id="inputPassword" class="form-control"
+                placeholder="mot de passe" required>
+
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+    >
+
+        <button class="GoConnexion" type="submit">
+            Connexion
+        </button>
+</form>
+

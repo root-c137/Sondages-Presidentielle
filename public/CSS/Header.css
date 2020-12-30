@@ -1,0 +1,225 @@
+
+
+.Header
+{
+    width:100%;
+    display: flex;
+    margin:auto;
+
+}
+
+.HeaderNav
+{
+    height:120px;
+    background-color: #393e46;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Title
+{
+    color:#eeeeee;
+    font-size: 1.2rem;
+    text-align: center;
+    padding:0.5rem;
+}
+
+.HeaderConnexion
+{
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}
+
+.GoConnexion
+{
+    display: flex;
+    padding:0.8rem;
+    outline: none;
+    border:none;
+    background-color: #393e46;
+    color:#eeeeee;
+    border-radius:3px;
+}
+
+@media only screen and (min-width: 150px)
+{
+    .Header
+    {
+        flex-direction: column;
+    }
+    .HeaderNav
+    {
+        width:100%;
+        font-size:0.7rem;
+    }
+    .HeaderConnexion
+    {
+        width:100%;
+        padding:0.5rem;
+        padding-top:1.5rem;
+    }
+
+    .HeaderConnexion form
+    {
+        flex-direction: column;
+    }
+    .GoConnexion
+    {
+        margin: auto;
+        width:70%;
+    }
+}
+
+@media only screen and (min-width: 200px)
+{
+    .HeaderNav
+    {
+        font-size:0.9rem;
+    }
+
+
+    .GoConnexion
+    {
+        width:50%;
+    }
+}
+
+@media only screen and (min-width: 400px)
+{
+    .HeaderNav
+    {
+        font-size: 1rem;
+    }
+
+    .HeaderConnexion
+    {
+        width:80%;
+    }
+}
+
+@media only screen and (min-width: 500px)
+{
+
+    .HeaderConnexion
+    {
+        width:70%;
+    }
+    .GoConnexion
+    {
+        width:40%;
+    }
+}
+
+@media only screen and (min-width: 600px)
+{
+
+    .HeaderConnexion
+    {
+        width:60%;
+    }
+    .GoConnexion
+    {
+        width:30%;
+    }
+}
+
+@media only screen and (min-width: 700px)
+{
+
+    .HeaderNav
+    {
+        padding:2rem;
+    }
+    .HeaderConnexion
+    {
+        width:50%;
+    }
+}
+
+@media only screen and (min-width: 850px)
+{
+    .HeaderConnexion
+    {
+        width:40%;
+    }
+}
+
+@media only screen and (min-width: 1000px)
+{
+    .Header
+    {
+        flex-direction: row;
+    }
+    .HeaderNav
+    {
+        width:calc(100% /2);
+        border-radius:0 0 30px;
+    }
+    .HeaderConnexion
+    {
+        padding:0;
+        padding-top:0;
+    }
+    .HeaderConnexion form
+    {
+        flex-direction: row;
+        justify-content: center;
+        align-content: center;
+    }
+    .GoConnexion
+    {
+        padding:0.5rem;
+    }
+}
+@media only screen and (min-width: 1100px)
+{
+    .HeaderNav
+    {
+        width:40%;
+    }
+    .HeaderConnexion form
+    {
+        width:90%;
+    }
+
+}
+
+@media only screen and (min-width: 1600px)
+{
+    .HeaderNav
+    {
+        width:35%;
+    }
+    .HeaderConnexion form
+    {
+        width:70%;
+    }
+
+}
+
+@media only screen and (min-width: 2000px)
+{
+    .HeaderNav
+    {
+        width:30%;
+    }
+    .HeaderConnexion form {
+        width: 60%;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
