@@ -10,11 +10,15 @@
         <link rel="stylesheet" href="{{ asset('CSS/Reset.css') }}"/>
         <link rel="stylesheet" href="{{ asset('CSS/Default.css') }}"/>
         <link rel="stylesheet" href="{{ asset('CSS/FormConnexion.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('CSS/Header.css') }}"/>
+
 
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+    {% embed 'Partials/Header.html.twig' %} {% endembed %}
+
+    {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
 </html>

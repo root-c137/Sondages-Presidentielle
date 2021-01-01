@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('CSS/Inscription.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('CSS/FormInscription.css') }}"/>
+{% endblock %}
+{% block body %}
+
+    <main class="InscriptionPresentation">
+
+        {% if not app.user %}
+
+            <section class="Inscription">
+
+                <div class="Formulaire">
+                    <h2 class="TitleInscription">Inscrivez-vous pour pouvoir voter</h2>
+
+                    {{ form_start(Form) }}
+
+                {{ form_label(Form.email) }}
+                {{ form_widget(Form.email) }}
+
+                {{
+                    form_label(Form.password.first, label|default(null),{
+                        'label_attr' : {'class' : 'FormLabel'}
+                    })
+                }}
+
+                {{
+                    form_widget(Form.password.first,{
+                        'attr' : {'class' : 'FormControl'}
+                    })
+                }}
+
+                {{
+                form_label(Form.password.second, label|default(null),{
+                    'label_attr' : {'class' : 'FormLabel'}
+                })
+                }}
+
+                {{
+                form_widget(Form.password.second,{
+                    'attr' : {'class' : 'FormControl'}
+                })
+                }}
+
+                {{ form_end(Form) }}
+                </div>
+            </section>
+
+        {% endif %}
+
+        <section class="Presentation">
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
+                    corporis eius facilis nam perspiciatis provident. Asperiores dolor eius ipsa quas quia? A
+                    fugit inventore quibusdam reiciendis velit vitae voluptates! Laborum!
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
+                    corporis eius facilis nam perspiciatis provident. Asperiores dolor eius ipsa quas quia? A
+                    fugit inventore quibusdam reiciendis velit vitae voluptates! Laborum!
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
+                    corporis eius facilis nam perspiciatis provident. Asperiores dolor eius ipsa quas quia? A
+                    fugit inventore quibusdam reiciendis velit vitae voluptates! Laborum!
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
+                    corporis eius facilis nam perspiciatis provident. Asperiores dolor eius ipsa quas quia? A
+                    fugit inventore quibusdam reiciendis velit vitae voluptates! Laborum!
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
+                    corporis eius facilis nam perspiciatis provident. Asperiores dolor eius ipsa quas quia? A
+                    fugit inventore quibusdam reiciendis velit vitae voluptates! Laborum!
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
+                    corporis eius facilis nam perspiciatis provident. Asperiores dolor eius ipsa quas quia? A
+                    fugit inventore quibusdam reiciendis velit vitae voluptates! Laborum!</p>
+        </section>
+
+    </main>
+{% endblock %}

@@ -1,0 +1,70 @@
+
+.InscriptionPresentation
+{
+    width: 100%;
+    height:auto;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.Inscription, .Presentation
+{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    width:calc(100% /2);
+    color:#393e46;
+}
+
+@media only screen and (min-width: 150px)
+{
+    .InscriptionPresentation
+    {
+        flex-direction: column;
+    }
+    .Inscription, .Presentation
+    {
+        width:100%;
+    }
+}
+
+@media only screen and (min-width: 1000px)
+{
+    .InscriptionPresentation
+    {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .Inscription, .Presentation
+    {
+        width: 50%;
+        align-items: center;
+        padding:1rem;
+    }
+
+
+    .TitleInscription
+    {
+        text-align: center;
+    }
+
+}
+
+@media only screen and (min-width: 1300px)
+{
+
+    .Inscription, .Presentation
+    {
+        width: 30%;
+    }
+
+
+
+
+}
+
+
+

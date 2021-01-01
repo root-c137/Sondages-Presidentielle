@@ -18,12 +18,13 @@
     justify-content: center;
 }
 
-.Title
+.Title a
 {
+    display: flex;
     color:#eeeeee;
     font-size: 1.2rem;
     text-align: center;
-    padding:0.5rem;
+    margin:1rem;
 }
 
 .HeaderConnexion

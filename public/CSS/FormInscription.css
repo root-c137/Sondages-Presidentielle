@@ -1,0 +1,151 @@
+
+
+
+.Inscription form
+{
+    display:flex;
+    flex-direction: column;
+}
+
+.Inscription .FormControl
+{
+    width:100%;
+}
+
+.Inscription .FormLabel
+{
+    padding:1rem;
+    padding-bottom: 0;
+}
+
+.GoInscription
+{
+    border:none;
+    outline:none;
+    background-color: #393e46;
+    color:#f1f2f3;
+    padding:0.5rem;
+    cursor:pointer;
+}
+
+.TitleInscription
+{
+    text-align: center;
+    padding:0.4rem;
+}
+@media only screen and (min-width: 150px)
+{
+
+    .Formulaire
+    {
+        width:100%;
+        margin:auto;
+        font-size: 0.7rem;
+    }
+}
+
+@media only screen and (min-width: 340px)
+{
+    .Formulaire
+    {
+        font-size: 1rem;
+        padding:1rem;
+    }
+
+}
+@media only screen and (min-width: 400px)
+{
+    .Formulaire
+    {
+        width:90%;
+    }
+
+}
+
+@media only screen and (min-width: 500px)
+{
+    .Formulaire
+    {
+        width:80%;
+    }
+
+}
+
+
+@media only screen and (min-width: 600px)
+{
+    .Formulaire
+    {
+        width:60%;
+    }
+
+}
+
+@media only screen and (min-width: 690px)
+{
+    .Formulaire
+    {
+        width:50%;
+    }
+
+}
+
+@media only screen and (min-width: 800px)
+{
+    .Formulaire
+    {
+        width:40%;
+    }
+
+}
+
+@media only screen and (min-width: 1000px)
+{
+    .Formulaire
+    {
+        width:80%;
+    }
+
+}
+
+@media only screen and (min-width: 1200px)
+{
+    .Formulaire
+    {
+        margin:0;
+        width:70%;
+    }
+}
+@media only screen and (min-width: 1300px)
+{
+    .Formulaire
+    {
+        width:89%;
+    }
+}
+
+@media only screen and (min-width: 1500px)
+{
+    .Formulaire
+    {
+        width:80%;
+    }
+}
+
+@media only screen and (min-width: 1700px)
+{
+    .Formulaire
+    {
+        width:75%;
+    }
+}
+
+@media only screen and (min-width: 1800px)
+{
+    .Formulaire
+    {
+        width:69%;
+    }
+}
+
+
