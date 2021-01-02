@@ -3,9 +3,37 @@
 {% block title %}Hello MainController!{% endblock %}
 
 {% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset("CSS/Home.css") }}"/>
+    <link rel="stylesheet" href="{{ asset("CSS/Card.css") }}"/>
+
 {% endblock %}
 
 {% block body %}
 
+    <main class="MainHome">
+
+        <section class="HeadMain">
+            <p>Parmis tous ces personnages politiques, lequel souhaiteriez vous voir remporter les prochaines élections présidentielle de
+            2022 ?</p>
+        </section>
+
+        <section class="CardList">
+
+            {% for Candidat in Candidats %}
+
+                <div class="Card">
+                    <span class="Name"> {{ Candidat.getFirstname }} {{ Candidat.getLastname }}</span>
+                    <div class="BackgroundLoad">
+                        <div class="BarrePourcent"></div>
+                        <p class="Pourcent">0%</p>
+                    </div>
+                    <button class="Voter">Voter</button>
+                </div>
+
+            {% endfor %}
+
+        </section>
+
+    </main>
 
 {% endblock %}

@@ -1,0 +1,57 @@
+
+.MainHome
+{
+    width:100%;
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+    padding:1rem;
+    padding-top:3rem;
+}
+
+.HeadMain
+{
+    text-align: center;
+    padding:5rem;
+}
+
+.CardList
+{
+    width:100%;
+    display: flex;
+    margin:auto;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap:wrap;
+    padding-top:2rem;
+}
+
+@media only screen and (min-width: 150px)
+{
+    .MainHome
+    {
+        padding:0.2rem;
+    }
+    .CardList
+    {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (min-width: 450px)
+{
+    .CardList
+    {
+        flex-direction: row;
+    }
+}
+
+
+@media only screen and (min-width: 1100px)
+{
+    .CardList
+    {
+        width:70%;
+    }
+}

@@ -1,0 +1,198 @@
+
+.Card
+{
+    width:10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border:1px solid #cccccc;
+    box-shadow: 0 0 10px #ccc;
+    margin:auto;
+}
+
+.Name
+{
+    width:100%;
+    font-weight: bold;
+    padding:0.5rem;
+    text-align: center;
+}
+
+.BackgroundLoad
+{
+    width:100%;
+    height:3.2rem;
+    background-color: #cccccc;
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.BarrePourcent
+{
+    width:100%;
+    height: 100%;
+    background-color: #89beb3;
+    margin:auto;
+}
+
+.Pourcent
+{
+    color:#cccccc;
+    position: absolute;
+    font-weight: bold;
+    color:#cccccc;
+}
+
+.Voter
+{
+    width:100%;
+    border:none;
+    outline: none;
+    background-color: #393e46;
+    color:#cccccc;
+    height:2rem;
+    cursor: pointer;
+}
+.Voter:hover
+{
+    background-color: #999999;
+}
+
+
+@media only screen and (min-width: 150px)
+{
+    .Card
+    {
+        width:100%;
+        margin-bottom:0.4rem;
+    }
+    .Name
+    {
+        font-size: 0.7rem;
+    }
+}
+
+@media only screen and (min-width: 200px)
+{
+    .Card
+    {
+        width:90%;
+    }
+}
+
+@media only screen and (min-width: 250px)
+{
+    .Card
+    {
+        width:70%;
+    }
+}
+
+@media only screen and (min-width: 300px)
+{
+    .Card
+    {
+        width:60%;
+    }
+}
+
+@media only screen and (min-width: 350px)
+{
+    .Card
+    {
+        width:50%;
+    }
+}
+
+@media only screen and (min-width: 400px)
+{
+    .Card
+    {
+        width:40%;
+    }
+}
+@media only screen and (min-width: 450px)
+{
+    .Card
+    {
+        width:30%;
+    }
+}
+
+@media only screen and (min-width: 600px)
+{
+    .Card
+    {
+        width:28%;
+    }
+}
+
+@media only screen and (min-width: 700px)
+{
+    .Card
+    {
+        width:27%;
+    }
+}
+
+@media only screen and (min-width: 840px)
+{
+    .Card
+    {
+        width:25%;
+        margin:0.4rem;
+    }
+}
+
+@media only screen and (min-width: 1000px)
+{
+    .Card
+    {
+        width:20%;
+    }
+}
+
+
+@media only screen and (min-width: 1150px)
+{
+    .Card
+    {
+        width:19%;
+    }
+}
+
+@media only screen and (min-width: 1500px)
+{
+    .Card
+    {
+        width:16%;
+    }
+}
+
+@media only screen and (min-width: 1700px)
+{
+    .Card
+    {
+        width:14%;
+    }
+}
+
+@media only screen and (min-width: 1800px)
+{
+    .Card
+    {
+        width:12%;
+    }
+}
+
+
+
+
+
+
+
+

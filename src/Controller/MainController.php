@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Candidat;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,9 +15,15 @@ class MainController extends AbstractController
      */
     public function index(): Response
     {
+        $D = $this->getDoctrine()->getRepository(Candidat::class);
+
+        $Candidats = $D->findAll();
 
 
-        return $this->render('main/index.html.twig');
+
+        return $this->render('main/index.html.twig',[
+            'Candidats' => $Candidats
+        ]);
     }
 
 }
