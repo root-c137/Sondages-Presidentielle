@@ -1,0 +1,66 @@
+
+.CandidatMain
+{
+    width:100%;
+    margin:auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color:#393e46;
+
+}
+
+.Presentation, .Map
+{
+    width:50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:1rem;
+}
+
+.NameCandidat
+{
+    font-width: bold;
+}
+.InfosCandidat
+{
+    border:1px solid #ccc;
+    border-radius:20px;
+    padding:0.7rem;
+    box-shadow: 0 0 10px #ccc;
+}
+.Chiffres
+{
+    padding:1rem;
+}
+
+
+.MapExplication
+{
+    padding:1rem;
+    margin-bottom:100px;
+}
+.Map
+{
+    justify-content: flex-start;
+    align-items: flex-start;
+
+}
+.MapFrance
+{
+    width:40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.FranceImg
+{
+    width:100%;
+    border:1px solid red;
+}
+
+

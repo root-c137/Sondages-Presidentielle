@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\CandidatRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+
 
 /**
  * @ORM\Entity(repositoryClass=CandidatRepository::class)
@@ -41,6 +43,29 @@ class Candidat
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $wiki;
+
+    //SLUG....................................................................................................
+
+    /**
+     * @ORM\Column(type="string", length=255, unique=true)
+     * @Gedmo\Slug(fields={"lastname"})
+     */
+    private $slug;
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    //...........................................................................................................
+
 
     public function getId(): ?int
     {

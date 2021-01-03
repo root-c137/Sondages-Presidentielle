@@ -11,12 +11,18 @@
     margin:auto;
 }
 
-.Name
+.CardName
 {
     width:100%;
     font-weight: bold;
     padding:0.5rem;
     text-align: center;
+    font-size: 0.75rem;
+    color:#393e46;
+}
+.CardName:hover
+{
+    color:#008891;
 }
 
 .BackgroundLoad

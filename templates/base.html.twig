@@ -16,6 +16,8 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+    <script src="{{ asset('JS/jquery/jquery.js') }}"></script>
+
     {% embed 'Partials/Header.html.twig' %} {% endembed %}
 
     {% block body %}{% endblock %}

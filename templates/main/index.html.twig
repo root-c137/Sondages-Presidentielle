@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MainController!{% endblock %}
+{% block title %}sondages-presidentielle.com{% endblock %}
 
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset("CSS/Home.css") }}"/>
@@ -12,6 +12,10 @@
 
     <main class="MainHome">
 
+        <section class="Timeout">
+            <h2>200 jours avant les élections</h2>
+        </section>
+
         <section class="HeadMain">
             <p>Parmis tous ces personnages politiques, lequel souhaiteriez vous voir remporter les prochaines élections présidentielle de
             2022 ?</p>
@@ -22,7 +26,7 @@
             {% for Candidat in Candidats %}
 
                 <div class="Card">
-                    <span class="Name"> {{ Candidat.getFirstname }} {{ Candidat.getLastname }}</span>
+                    <a class="CardName" href="{{ path('candidat', {'slug' : Candidat.getSlug() } ) }}">{{ Candidat.getFirstname }} {{ Candidat.getLastname }}</a>
                     <div class="BackgroundLoad">
                         <div class="BarrePourcent"></div>
                         <p class="Pourcent">0%</p>
