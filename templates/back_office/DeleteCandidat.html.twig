@@ -1,0 +1,30 @@
+
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BackOfficeController!{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('CSS/Backo.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('CSS/AddCandidat.css') }}"/>
+{% endblock %}
+
+{% block body %}
+
+    <main class="BackoMain">
+
+        {% for Msg in app.flashes('Msg') %}
+            <p class="WarningMsg">{{ Msg }}</p>
+        {% endfor %}
+        <section class="DeleteCandidatForm">
+
+            <h3>Vous êtes sur le point de supprimer le candidat : {{ Candidat.getFirstname() }} {{ Candidat.getLastname() }}</h3>
+            <ul>
+                <li><a href="{{ path('DeleteCandidat', {'slug' : Candidat.getSlug()} ) }}">Je confirme la suppression</a></li>
+                <li><a href="#">Annuler</a></li>
+            </ul>
+
+        </section>
+
+    </main>
+{% endblock %}

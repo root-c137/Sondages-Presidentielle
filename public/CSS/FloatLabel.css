@@ -4,18 +4,26 @@
     height:2.3rem;
     border:1px solid #e0e0e0;
     outline: none;
-    margin-bottom:1rem;
+    margin-bottom:0.9rem;
+    padding: 17px 8px 4px 6px;
+    resize: none;
+
 }
+.Textarea
+{
+    height:10rem;
+}
+
 
 .FormGroup
 {
+    margin-bottom: 0.2rem;
     transition: all .3s;
     display:flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     width:100%;
-
 }
 
 .FormLabel
@@ -24,9 +32,17 @@
     color:#aaa;
     opacity:1;
     display: block;
-    transform:translateY(-3em);
-    transform-origin: 0 0;
+    transform: translate3d(0, -3em, 0) scale(1);
+    transform-origin: left top;
     transition: all .3s;
+    margin-left:0.3rem;
+    padding:0.3rem;
+    pointer-events: none;
+}
+
+.FormLabelTextarea
+{
+    transform: translate3d(0, -10.5em, 0) scale(1);
 }
 
 .FormControl
@@ -35,31 +51,37 @@
     width:100%;
     border-color: #ccc;
     transition:all .5s;
-    padding:3px;
+
 }
 
 .FormControl::placeholder
 {
     color:transparent;
 }
+
 .FormControl:focus + .FormLabel,
 .FormControl:not(:placeholder-shown) + .FormLabel
 {
-    transform:translateY(-4.5em);
+    transform: translate3d(0, -3em, 0) scale(0.55);
 }
+
+.Textarea:focus + .FormLabelTextarea,
+.Textarea:not(:placeholder-shown) + .FormLabelTextarea
+{
+    transform: translate3d(0, -10.5em, 0) scale(0.55);
+}
+
+
 
 .FormControl:focus
 {
     box-shadow:none;
     outline:none;
-    border-color: #16a596;
+    border-color: #1c1d21;
+    box-shadow: 0 0 10px #ccc;
+
 }
 .FormGroup:focus-within
-{
-
-}
-
-@media only screen and (min-width: 1000px)
 {
 
 }

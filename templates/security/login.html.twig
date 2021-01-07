@@ -1,11 +1,17 @@
 
 <form action="{{ path('login') }}" method="post">
 
+    <div class="FormGroup">
         <input class="FormControl" type="email"  name="email" id="inputEmail" class="form-control"
                placeholder="adresse mail" required/>
+        <label class="FormLabel">adresse mail..</label>
+    </div>
 
+    <div class="FormGroup">
          <input class="FormControl" type="password" name="password" id="inputPassword" class="form-control"
                 placeholder="mot de passe" required>
+        <label class="FormLabel" for="password">mot de passe..</label>
+    </div>
 
     <input type="hidden" name="_csrf_token"
            value="{{ csrf_token('authenticate') }}"

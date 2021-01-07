@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BackOfficeController!{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('CSS/Backo.css') }}"/>
+{% endblock %}
+
+{% block body %}
+
+    <main class="BackoMain">
+
+        <h2>BACK OFFICE Sondages-presidentielle.com</h2>
+
+        <section class="NavBacko">
+
+            <ul class="Nav">
+                <li><a href="{{ path('AddCandidatForm') }}" class="LinkMenu">Ajouter un candidat</a> </li>
+                <li><a href="#" class="LinkMenu">Ajouter un sondage</a> </li>
+                <li><a href="#" class="LinkMenu">Les textes..</a> </li>
+            </ul>
+        </section>
+
+        <section class="ListCandidat">
+
+            <a href="#" class="CandidatOrSandage">Affichier les sondages</a>
+            <table class="ListTable">
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Age</th>
+                    <th>Parti</th>
+                    <th>Wiki</th>
+                    <th>Vote</th>
+                    <th colspan="2">Action</th>
+                </tr>
+
+                {% for Candidat in Candidats %}
+                    <tr>
+                        <td class="Col">{{Candidat.getLastname()}}</td>
+                        <td class="Col">{{Candidat.getFirstname()}}</td>
+                        <td class="Col">{{Candidat.getAge()}}</td>
+                        <td class="Col">{{Candidat.getParti()}}</td>
+                        <td class="Col">{{Candidat.getWiki()}}</td>
+                        <td class="Col">0</td>
+                        <td class="Col"><a href="{{ path('UpdateCandidatForm', {'slug' : Candidat.getSlug()}) }}" class="LinkAction">Modifier</a></td>
+                        <td class="Col"><a href="{{ path('DeleteCandidatForm', {'slug' : Candidat.getSlug() }) }}" class="LinkAction">Supprimé</a></td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+
+        </section>
+    </main>
+{% endblock %}

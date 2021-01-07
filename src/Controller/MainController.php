@@ -19,8 +19,6 @@ class MainController extends AbstractController
 
         $Candidats = $D->findAll();
 
-
-
         return $this->render('main/index.html.twig',[
             'Candidats' => $Candidats
         ]);

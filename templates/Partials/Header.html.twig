@@ -11,8 +11,23 @@
             </nav>
         </section>
 
+        {% if app.user %}
+
+            <section class="HeaderCo">
+
+                <p>Vous n'avez pas encore voté.</p>
+                <nav>
+                    <ul>
+                        <li><a href="#">Compte</a></li>
+                        <li><a href="#">Déconnexion</a></li>
+                    </ul>
+                </nav>
+
+            </section>
+        {% else %}
         <section class="HeaderConnexion">
             {% embed 'security/login.html.twig' %}{% endembed %}
         </section>
+        {% endif %}
 
     </section>

@@ -1,0 +1,42 @@
+
+.AddCandidatForm
+{
+    width:100%;
+    margin:auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border:1px solid red;
+}
+
+.Formulaire
+{
+    width:40%;
+    margin:auto;
+}
+.Formulaire form
+{
+    display: flex;
+    flex-direction: column;
+    border:1px solid blue;
+    padding:0;
+}
+
+.GoAddCandidat
+{
+
+    display: flex;
+    padding:0.8rem;
+    outline: none;
+    border:none;
+    background-color: #393e46;
+    color:#eeeeee;
+    border-radius:3px;
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 150px)
+{
+
+}

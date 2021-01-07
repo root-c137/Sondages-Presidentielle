@@ -1,0 +1,58 @@
+
+
+.BackoMain
+{
+    width:55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin:auto;
+    border:1px solid red;
+}
+
+.NavBacko, .Nav
+{
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.Nav li
+{
+}
+
+.CandidatOrSandage
+{
+    display: inline-block;
+    color:#B0413E;
+    padding:1rem;
+}
+.CandidatOrSandage:hover
+{
+    color:#393e46;
+}
+
+.ListCandidat, .ListTable
+{
+    width:100%;
+}
+
+.ListTable
+{
+    display: flex;
+}
+.ListCandidat
+{
+    border:1px solid #ccc;
+}
+
+.Col, th
+{
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    vertical-align: middle;
+}
+
+

@@ -1,0 +1,58 @@
+
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BackOfficeController!{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('CSS/Backo.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('CSS/AddCandidat.css') }}"/>
+{% endblock %}
+
+{% block body %}
+
+    <main class="BackoMain">
+
+        {% for Msg in app.flashes('Msg') %}
+            <p class="WarningMsg">{{ Msg }}</p>
+        {% endfor %}
+        <section class="AddCandidatForm">
+
+            <div class="Formulaire">
+                {{ form_start(Form) }}
+
+                <div class="FormGroup">
+                    {{ form_widget(Form.firstname) }}
+                    {{ form_label(Form.firstname) }}
+                </div>
+                <div class="FormGroup">
+                    {{ form_widget(Form.lastname) }}
+                    {{ form_label(Form.lastname) }}
+                </div>
+                <div class="FormGroup">
+                    {{ form_widget(Form.age) }}
+                    {{ form_label(Form.age) }}
+                </div>
+                <div class="FormGroup">
+                    {{ form_widget(Form.parti) }}
+                    {{ form_label(Form.parti) }}
+                </div>
+                <div class="FormGroup">
+                    {{ form_widget(Form.wiki) }}
+                    {{ form_label(Form.wiki) }}
+                </div>
+
+                {% if Mode == 'UPDATE' %}
+                     {{ form_widget(Form.submit, {'label':'Modifier'}) }}
+                {% elseif Mode == 'ADD' %}
+                     {{ form_widget(Form.submit, {'label':'Ajouter'}) }}
+                {% endif %}
+
+                {{ form_end(Form) }}
+            </div>
+
+        </section>
+
+
+    </main>
+{% endblock %}

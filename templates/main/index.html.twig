@@ -26,12 +26,13 @@
             {% for Candidat in Candidats %}
 
                 <div class="Card">
-                    <a class="CardName" href="{{ path('candidat', {'slug' : Candidat.getSlug() } ) }}">{{ Candidat.getFirstname }} {{ Candidat.getLastname }}</a>
+                    <a class="CardName {{ Candidat.getSlug() }}" href="{{ path('candidat', {'slug' : Candidat.getSlug() } ) }}">{{ Candidat.getFirstname }} {{ Candidat.getLastname }}</a>
                     <div class="BackgroundLoad">
                         <div class="BarrePourcent"></div>
                         <p class="Pourcent">0%</p>
                     </div>
-                    <button class="Voter">Voter</button>
+
+                    <button class="Voter" >Voter</button>
                 </div>
 
             {% endfor %}
@@ -41,3 +42,8 @@
     </main>
 
 {% endblock %}
+
+        {% block javascripts %}
+            <script src="{{ asset('JS/Vote.js') }}"></script>
+        {% endblock %}
+
