@@ -22,22 +22,31 @@ class CandidatController extends AbstractController
     }
 
     /**
-     * @Route("/candidat/Add", name="AddCandidat")
+     * @Route("backo/candidat/Add", name="AddCandidat")
      */
     public function AddCandidat(Request $Request): Response
     {
-        dd($Request);
-        $Doc = $this->getDoctrine()->getRepository(Candidat::class);
+        $Candidat = new Candidat();
+        $Form = $this->createForm(CandidatFormType::class, $Candidat);
+        $Form->handleRequest($Request);
 
-        $Candidats = $Doc->findAll();
+        if($Form->isSubmitted() && $Form->isValid() )
+        {
+            $Doc = $this->getDoctrine()->getManager();
+            $Candidat = $Form->getData();
 
-        return $this->render('back_office/index.html.twig', [
-            'Candidats' => $Candidats
-        ]);
+            $Doc->persist($Candidat);
+            $Doc->flush();
+
+            $this->addFlash('Msg', 'Le Candidat '.$Candidat->getFirstname().' à bien été ajouté.');
+            return $this->redirectToRoute('back_office');
+
+        }
+
     }
 
     /**
-     * @Route("/candidat/Update/Update/{slug}", name="UpdateCandidat")
+     * @Route("backo/candidat/Update/Update/{slug}", name="UpdateCandidat")
      */
     public function UpdateCandidat(Candidat $Candidat, Request $Request): Response
     {
@@ -61,7 +70,7 @@ class CandidatController extends AbstractController
 
 
     /**
-     * @Route("/candidat/Delete/Delete/{slug}", name="DeleteCandidat")
+     * @Route("backo/candidat/Delete/Delete/{slug}", name="DeleteCandidat")
      */
     public function DeleteCandidat(Candidat $Candidat): Response
     {

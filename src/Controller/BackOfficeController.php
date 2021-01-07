@@ -32,13 +32,13 @@ class BackOfficeController extends AbstractController
     {
         $Candidat = new Candidat();
         $Form = $this->createForm(CandidatFormType::class, $Candidat, [
-            'action' => 'AddCandidat',
+            'action' => $this->generateUrl('AddCandidat'),
             'method' => 'POST'
         ]);
 
         return $this->render('back_office/AddCandidat.html.twig', [
             'Form' => $Form->createView(),
-
+            'Mode' => 'ADD'
         ]);
     }
 
