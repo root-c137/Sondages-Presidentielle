@@ -35,6 +35,11 @@ class User implements UserInterface
      */
     private $password;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Vote::class, mappedBy="User")
+     */
+    private $vote;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -111,5 +116,27 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getVote(): ?Vote
+    {
+        return $this->vote;
+    }
+
+    public function setVote(?Vote $vote): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($vote === null && $this->vote !== null) {
+            $this->vote->setUser(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($vote !== null && $vote->getUser() !== $this) {
+            $vote->setUser($this);
+        }
+
+        $this->vote = $vote;
+
+        return $this;
     }
 }

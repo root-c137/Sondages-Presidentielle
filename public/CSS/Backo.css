@@ -2,14 +2,18 @@
 
 .BackoMain
 {
-    width:55%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin:auto;
-    border:1px solid red;
+    margin-top:5rem;
+    align-items: center;
 }
 
+.TitleBacko
+{
+    padding:1rem;
+}
 .NavBacko, .Nav
 {
     width:100%;
@@ -21,6 +25,7 @@
 
 .Nav li
 {
+    padding:0.5rem;
 }
 
 .CandidatOrSandage
@@ -37,12 +42,10 @@
 .ListCandidat, .ListTable
 {
     width:100%;
+    margin:auto;
 }
 
-.ListTable
-{
-    display: flex;
-}
+
 .ListCandidat
 {
     border:1px solid #ccc;
@@ -50,9 +53,55 @@
 
 .Col, th
 {
+    width:calc(100% / 7);
     text-align: center;
     border-bottom: 1px solid #ccc;
     vertical-align: middle;
+    padding-top:0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+
+@media only screen and (min-width: 400px)
+{
+    .BackoMain
+    {
+        width:100%;
+        font-size: 0.75rem;
+    }
+
+
+}
+
+@media only screen and (min-width: 700px)
+{
+
+    .ListCandidat
+    {
+        width:80%;
+    }
+
+}
+
+
+@media only screen and (min-width: 1150px)
+{
+
+    .ListCandidat
+    {
+        width:70%;
+    }
+
+}
+
+
+@media only screen and (min-width: 1400px)
+{
+
+    .ListCandidat
+    {
+        width:50%;
+    }
 }
 
 

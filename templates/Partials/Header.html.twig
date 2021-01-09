@@ -15,7 +15,12 @@
 
             <section class="HeaderCo">
 
-                <p>Vous n'avez pas encore voté.</p>
+                {% if app.session.get('VoteActuel') is not empty %}
+                    <p>Vous avez voter pour : {{ app.session.get('VoteActuel').getFirstname }} {{ app.session.get('VoteActuel').getLastname() }}</p>
+                {% else %}
+                    <p>Vous n'avez pas encore voté.</p>
+                {% endif %}
+
                 <nav>
                     <ul>
                         <li><a href="#">Compte</a></li>

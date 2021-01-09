@@ -24,7 +24,7 @@ class SecurityController extends AbstractController
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->redirectToRoute('main', ['last_username' => $lastUsername, 'error' => $error]);
+        return $this->redirectToRoute('main');
     }
 
     /**

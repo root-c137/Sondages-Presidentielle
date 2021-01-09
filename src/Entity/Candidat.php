@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CandidatRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
@@ -51,6 +53,16 @@ class Candidat
      * @Gedmo\Slug(fields={"lastname"})
      */
     private $slug;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Vote::class, mappedBy="Candidat")
+     */
+    private $votes;
+
+    public function __construct()
+    {
+        $this->votes = new ArrayCollection();
+    }
 
     public function getSlug(): ?string
     {
@@ -128,6 +140,36 @@ class Candidat
     public function setWiki(?string $wiki): self
     {
         $this->wiki = $wiki;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Vote[]
+     */
+    public function getVotes(): Collection
+    {
+        return $this->votes;
+    }
+
+    public function addVote(Vote $vote): self
+    {
+        if (!$this->votes->contains($vote)) {
+            $this->votes[] = $vote;
+            $vote->setCandidat($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVote(Vote $vote): self
+    {
+        if ($this->votes->removeElement($vote)) {
+            // set the owning side to null (unless already changed)
+            if ($vote->getCandidat() === $this) {
+                $vote->setCandidat(null);
+            }
+        }
 
         return $this;
     }
