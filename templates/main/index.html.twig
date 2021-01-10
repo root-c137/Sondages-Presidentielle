@@ -13,7 +13,7 @@
     <main class="MainHome">
 
         <section class="Timeout">
-            <h2>200 jours avant les élections</h2>
+            <h3 id="TimeOut">200 jours avant les élections</h3>
         </section>
 
         <section class="HeadMain">
@@ -51,6 +51,7 @@
 
         {% block javascripts %}
             <script src="{{ asset('JS/Vote.js') }}"></script>
+            <script src="{{ asset('JS/TimeOut.js') }}"></script>
         {% endblock %}
 
 
