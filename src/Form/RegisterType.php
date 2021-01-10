@@ -19,7 +19,8 @@ class RegisterType extends AbstractType
             ->add('email', EmailType::class,[
                 'label' => 'Adresse mail',
                 'attr' => [
-                    'class' => 'FormControl'
+                    'class' => 'FormControl',
+                    'placeholder' => 'adresse mail..'
                 ],
                 'label_attr' => [
                     'class' => 'FormLabel'
@@ -31,9 +32,15 @@ class RegisterType extends AbstractType
                 "required" => true,
                 'first_options' => [
                     'label' => 'Mot de passe',
+                    'attr' => [
+                        'placeholder' => 'mot de passe..'
+                    ]
                 ],
                 'second_options' => [
-                    'label' => 'Répetez votre mot de passer'
+                    'label' => 'Répetez votre mot de passer',
+                    'attr' => [
+                            'placeholder' => 'répetez votre mot de passe..'
+                    ]
                 ]
             ])
             ->add('submit', SubmitType::class,[

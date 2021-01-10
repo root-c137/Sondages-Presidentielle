@@ -1,0 +1,40 @@
+
+{{ form_start(Form) }}
+
+                <div class="FormGroup">
+                    {{ form_widget(Form.email) }}
+                    {{ form_label(Form.email) }}
+
+                </div>
+
+                <div class="FormGroup">
+                    {{
+                    form_widget(Form.password.first,{
+                        'attr' : {'class' : 'FormControl'}
+                    })
+                    }}
+                    {{
+                    form_label(Form.password.first, label|default(null),{
+                        'label_attr' : {'class' : 'FormLabel'}
+                    })
+                    }}
+                </div>
+
+                <div class="FormGroup">
+
+                    {{
+                    form_widget(Form.password.second,{
+                        'attr' : {'class' : 'FormControl'}
+                    })
+                    }}
+                    {{
+                    form_label(Form.password.second, label|default(null),{
+                        'label_attr' : {'class' : 'FormLabel'}
+                    })
+                    }}
+                </div>
+
+{{ form_widget(Form.submit)  }}
+
+
+{{ form_end(Form) }}

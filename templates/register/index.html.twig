@@ -16,37 +16,7 @@
 
                 <div class="Formulaire">
                     <h2 class="TitleInscription">Inscrivez-vous pour pouvoir voter</h2>
-
-                    {{ form_start(Form) }}
-
-                {{ form_label(Form.email) }}
-                {{ form_widget(Form.email) }}
-
-                {{
-                    form_label(Form.password.first, label|default(null),{
-                        'label_attr' : {'class' : 'FormLabel'}
-                    })
-                }}
-
-                {{
-                    form_widget(Form.password.first,{
-                        'attr' : {'class' : 'FormControl'}
-                    })
-                }}
-
-                {{
-                form_label(Form.password.second, label|default(null),{
-                    'label_attr' : {'class' : 'FormLabel'}
-                })
-                }}
-
-                {{
-                form_widget(Form.password.second,{
-                    'attr' : {'class' : 'FormControl'}
-                })
-                }}
-
-                {{ form_end(Form) }}
+                    {% embed 'register/FormInscription.html.twig' %}{% endembed %}
                 </div>
             </section>
 

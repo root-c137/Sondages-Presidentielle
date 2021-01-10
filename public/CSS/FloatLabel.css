@@ -7,6 +7,7 @@
     margin-bottom:0.9rem;
     padding: 17px 8px 4px 6px;
     resize: none;
+    border:1px solid red;
 
 }
 .Textarea
@@ -40,6 +41,12 @@
     pointer-events: none;
 }
 
+.Inscription .FormLabel
+{
+    transform: translate3d(0, -3.7em, 0) scale(1);
+    margin-left:0;
+}
+
 .FormLabelTextarea
 {
     transform: translate3d(0, -10.5em, 0) scale(1);
@@ -64,6 +71,13 @@
 {
     transform: translate3d(0, -3em, 0) scale(0.55);
 }
+
+.Inscription .FormControl:focus + .FormLabel,
+.Inscription .FormControl:not(:placeholder-shown) + .FormLabel
+{
+    transform: translate3d(0, -3.4em, 0) scale(0.55);
+}
+
 
 .Textarea:focus + .FormLabelTextarea,
 .Textarea:not(:placeholder-shown) + .FormLabelTextarea

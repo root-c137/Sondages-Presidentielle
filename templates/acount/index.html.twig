@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AcountController!{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset("CSS/Inscription.css") }}"/>
+    <link rel="stylesheet" href="{{ asset('CSS/FormInscription.css') }}"/>
+{% endblock %}
+
+{% block body %}
+
+
+    <main class="AcountMain">
+
+        <section class="AcountInfos">
+
+            <div class="UpdateInfos">
+
+                <div class="Formulaire">
+                {% embed 'register/FormInscription.html.twig' %}{% endembed %}
+                </div>
+
+            </div>
+            <div class="Infos">
+                <table>
+
+                    <tr>
+                        <td>Adresse mail : {{ app.user.getEmail() }}</td>
+                    </tr>
+                    <tr>
+                        <td>Code postal : 69000</td>
+                    </tr>
+                    <tr>
+                        <td>Date de naissance : 21/08/1995</td>
+                    </tr>
+                    <tr>
+                        <td>Mot de passe : ******</td>
+                    </tr>
+
+                </table>
+            </div>
+
+        </section>
+    </main>
+{% endblock %}

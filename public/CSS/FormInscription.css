@@ -26,6 +26,8 @@
     color:#f1f2f3;
     padding:0.5rem;
     cursor:pointer;
+    display: block;
+    margin:auto;
 }
 
 .TitleInscription
