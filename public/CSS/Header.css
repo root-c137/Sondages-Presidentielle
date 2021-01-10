@@ -36,6 +36,22 @@
     margin: auto;
 }
 
+.HeaderCo
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.MsgVoteActuel
+{
+    margin:1rem;
+}
+
+.NavHeaderCo li
+{
+    padding:0.4rem;
+}
 
 
 @media only screen and (min-width: 150px)
@@ -54,6 +70,11 @@
         width:100%;
         padding:0.5rem;
         padding-top:1.5rem;
+    }
+    .HeaderCo
+    {
+        align-items: center;
+        text-align: center;
     }
 
     .HeaderConnexion form
@@ -146,6 +167,12 @@
         flex-direction: row;
         justify-content: center;
         align-content: center;
+    }
+
+    .HeaderCo
+    {
+        align-items: flex-start;
+        padding-lef:1rem;
     }
 }
 @media only screen and (min-width: 1100px)

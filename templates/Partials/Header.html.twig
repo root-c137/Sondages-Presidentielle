@@ -2,7 +2,7 @@
     <section class="Header">
 
         <section class="HeaderNav">
-            <h1 class="Title"><a href="{{ path('main') }}">Sondages-presidentielle</a></h1>
+            <h1 class="Title"><a href="{{ path('main') }}">sondagepresidentielle.xyz</a></h1>
 
             <nav class="Menu">
                 <ul>
@@ -15,15 +15,15 @@
 
             <section class="HeaderCo">
                 {% if app.session.get('VoteActuel') is not empty %}
-                    <p>Vous avez voter pour : {{ app.session.get('VoteActuel').getFirstname }} {{ app.session.get('VoteActuel').getLastname() }}</p>
+                    <p class="MsgVoteActuel">Vous avez voter pour : {{ app.session.get('VoteActuel').getFirstname }} {{ app.session.get('VoteActuel').getLastname() }}</p>
                 {% else %}
-                    <p>Vous n'avez pas encore voté.</p>
+                    <p class="MsgVoteActuel">Vous n'avez pas encore voté.</p>
                 {% endif %}
 
-                <nav>
+                <nav class="NavHeaderCo">
                     <ul>
-                        <li><a href="#">Compte</a></li>
-                        <li><a href="#">Déconnexion</a></li>
+                        <li><a class="LinkMenu" href="#">Compte</a></li>
+                        <li><a class="LinkMenu" href="#">Déconnexion</a></li>
                     </ul>
                 </nav>
 
