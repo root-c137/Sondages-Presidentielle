@@ -59,6 +59,11 @@ class Candidat
      */
     private $votes;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $NbVote;
+
     public function __construct()
     {
         $this->votes = new ArrayCollection();
@@ -170,6 +175,18 @@ class Candidat
                 $vote->setCandidat(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getNbVote(): ?int
+    {
+        return $this->NbVote;
+    }
+
+    public function setNbVote(?int $NbVote): self
+    {
+        $this->NbVote = $NbVote;
 
         return $this;
     }

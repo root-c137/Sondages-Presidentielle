@@ -14,7 +14,6 @@
         {% if app.user %}
 
             <section class="HeaderCo">
-
                 {% if app.session.get('VoteActuel') is not empty %}
                     <p>Vous avez voter pour : {{ app.session.get('VoteActuel').getFirstname }} {{ app.session.get('VoteActuel').getLastname() }}</p>
                 {% else %}

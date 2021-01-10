@@ -25,20 +25,19 @@
 
             {% for Candidat in Candidats %}
 
-                <div class="Card">
+                <div class="Card Card{{ Candidat.getSlug() }}">
                     <a class="CardName {{ Candidat.getSlug() }}" href="{{ path('candidat', {'slug' : Candidat.getSlug() } ) }}">{{ Candidat.getFirstname }} {{ Candidat.getLastname }}</a>
                     <div class="BackgroundLoad">
-                        <div class="BarrePourcent" ></div>
-                        <p class="Pourcent">{{ 0 }}%</p>
+                        <div class="BarrePourcent" style="width:{{ ((Candidat.getVotes()|length / TotalVote) * 100)|number_format(2) }}%;"></div>
+                        <p class="Pourcent">{{ ((Candidat.getVotes()|length / TotalVote) * 100)|number_format(2) }}%</p>
                     </div>
 
-                    <button class="Voter">
                         {% if app.session.get('VoteActuel') == Candidat %}
-                            Votre vote - annuler
+                            <button class="Voter AnnulerVote">Votre vote - annuler</button>
                         {% else %}
-                            Voter
+                            <button class="Voter">Voter</button>
                         {% endif %}
-                    </button>
+
 
                 </div>
 

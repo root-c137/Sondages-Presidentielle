@@ -24,6 +24,9 @@ class MainController extends AbstractController
         $Candidats = $RepCandidat->findAll();
         $Votes = $RepVote->findAll();
 
+        $TotalVote = count($Votes);
+        if($TotalVote == 0)
+            $TotalVote = 1;
 
         $VoteActuel = '';
         if($this->getUser())
@@ -39,7 +42,7 @@ class MainController extends AbstractController
 
         return $this->render('main/index.html.twig',[
             'Candidats' => $Candidats,
-            'TotalVote' => count($Votes),
+            'TotalVote' => $TotalVote,
         ]);
     }
 

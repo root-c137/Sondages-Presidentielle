@@ -70,6 +70,12 @@
     background-color: #999999;
 }
 
+.AnnulerVote
+{
+    background-color: #eeeeee;
+    color:#393e46;
+}
+
 
 @media only screen and (min-width: 150px)
 {
