@@ -32,7 +32,7 @@ class RegisterController extends AbstractController
 
 
         return $this->render('register/index.html.twig', [
-            'Form' => $Form->createView()
+            'Form' => $Form->createView(),
         ]);
     }
 
@@ -104,7 +104,7 @@ GuardAuthenticatorHandler $Guard,LoginAuthenticator $Login): Response
 
            return  $this->redirectToRoute('register');
         }
-}
+    }
 
 
 }

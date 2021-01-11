@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="{{ asset("CSS/Inscription.css") }}"/>
     <link rel="stylesheet" href="{{ asset('CSS/FormInscription.css') }}"/>
     <link rel="stylesheet" href="{{ asset('CSS/Acount.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('CSS/Errors.css') }}"/>
+
 {% endblock %}
 
 {% block body %}
@@ -14,6 +16,7 @@
     <main class="AcountMain">
 
         <section class="AcountInfos">
+            {% embed 'Partials/Error.html.twig' %}{% endembed %}
 
             <h2 class="AcountTitle">Compte</h2>
 
@@ -22,7 +25,28 @@
             <div class="UpdateInfos">
 
                 <div class="Formulaire">
-                     {% embed 'register/FormInscription.html.twig' %}{% endembed %}
+                    {{ form_start(Form) }}
+
+                    <div class="FormGroup">
+                        {{ form_widget(Form.email) }}
+                        {{ form_label(Form.email) }}
+                    </div>
+
+                    <div class="FormGroup">
+                        {{ form_widget(Form.datenaissance) }}
+                        {{ form_label(Form.datenaissance) }}
+                    </div>
+
+
+                    <div class="FormGroup">
+                        {{ form_widget(Form.codepostal) }}
+                        {{ form_label(Form.codepostal) }}
+                    </div>
+
+                    {{ form_widget(Form.submit) }}
+                    {{ form_end(Form) }}
+
+                    <a href="{{ path('Updatepassword') }}">Modifier le mot de passe ?</a>
                 </div>
 
             </div>

@@ -16,11 +16,7 @@
 
             <section class="Inscription">
 
-                <div class="Err">
-                    {% for Err in app.flashes('Err') %}
-                        <p class="Errmsg">{{ Err }}</p>
-                    {% endfor %}
-                </div>
+             {% embed 'Partials/Error.html.twig' %}{% endembed %}
 
                 <div class="Formulaire">
                     <h2 class="TitleInscription">Inscrivez-vous pour pouvoir voter</h2>

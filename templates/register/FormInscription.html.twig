@@ -30,19 +30,19 @@
                     }}
                 </div>
 
-                <div class="FormGroup">
+                    <div class="FormGroup">
 
-                    {{
-                    form_widget(Form.password.second,{
-                        'attr' : {'class' : 'FormControl'}
-                    })
-                    }}
-                    {{
-                    form_label(Form.password.second, label|default(null),{
-                        'label_attr' : {'class' : 'FormLabel'}
-                    })
-                    }}
-                </div>
+                        {{
+                        form_widget(Form.password.second,{
+                            'attr' : {'class' : 'FormControl'}
+                        })
+                        }}
+                        {{
+                        form_label(Form.password.second, label|default(null),{
+                            'label_attr' : {'class' : 'FormLabel'}
+                        })
+                        }}
+                    </div>
 
 {{ form_widget(Form.submit)  }}
 
