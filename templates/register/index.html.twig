@@ -5,6 +5,8 @@
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('CSS/Inscription.css') }}"/>
     <link rel="stylesheet" href="{{ asset('CSS/FormInscription.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('CSS/Errors.css') }}"/>
+
 {% endblock %}
 {% block body %}
 
@@ -13,6 +15,12 @@
         {% if not app.user %}
 
             <section class="Inscription">
+
+                <div class="Err">
+                    {% for Err in app.flashes('Err') %}
+                        <p class="Errmsg">{{ Err }}</p>
+                    {% endfor %}
+                </div>
 
                 <div class="Formulaire">
                     <h2 class="TitleInscription">Inscrivez-vous pour pouvoir voter</h2>

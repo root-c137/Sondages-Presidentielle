@@ -1,0 +1,93 @@
+
+.AcountMain, .AcountInfos, .UpdateInfos
+{
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top:5rem;
+}
+
+.AcountTitle
+{
+    padding:1rem;
+    font-weight: bold;
+}
+.AcountInfos, .UpdateInfos
+{
+    width:100%;
+    margin-top:0;
+}
+.AcountInfos .Formulaire form
+{
+    width:60%;
+    display:flex;
+    flex-direction: column;
+}
+
+.Infos
+{
+    border:1px solid #ccc;
+    padding:1rem;
+    box-shadow: 0 0 10px #ccc;
+
+}
+
+@media only screen and (min-width: 150px)
+{
+    .AcountMain, .AcountInfos, .UpdateInfos, .AcountInfos .Formulaire form
+    {
+        width:100%;
+    }
+}
+
+@media only screen and (min-width: 300px)
+{
+    .AcountMain, .AcountInfos, .UpdateInfos
+    {
+        width:100%;
+    }
+    .AcountInfos .Formulaire form
+    {
+        width:90%;
+    }
+}
+
+@media only screen and (min-width: 500px)
+{
+
+    .AcountInfos .Formulaire form
+    {
+        width:80%;
+    }
+}
+
+@media only screen and (min-width: 580px)
+{
+
+    .AcountInfos .Formulaire form
+    {
+        width:76%;
+    }
+}
+
+@media only screen and (min-width: 1000px)
+{
+    .AcountMain
+    {
+        width:50%;
+    }
+    .AcountInfos .Formulaire form
+    {
+        width:76%;
+    }
+}
+
+@media only screen and (min-width: 1300px)
+{
+    .AcountInfos .Formulaire form
+    {
+        width:65%;
+    }
+}

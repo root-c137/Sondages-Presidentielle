@@ -5,6 +5,7 @@
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset("CSS/Inscription.css") }}"/>
     <link rel="stylesheet" href="{{ asset('CSS/FormInscription.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('CSS/Acount.css') }}"/>
 {% endblock %}
 
 {% block body %}
@@ -14,10 +15,14 @@
 
         <section class="AcountInfos">
 
+            <h2 class="AcountTitle">Compte</h2>
+
+            <a href="#" class="AccountMode">Modifier vos informations</a>
+
             <div class="UpdateInfos">
 
                 <div class="Formulaire">
-                {% embed 'register/FormInscription.html.twig' %}{% endembed %}
+                     {% embed 'register/FormInscription.html.twig' %}{% endembed %}
                 </div>
 
             </div>
@@ -42,4 +47,8 @@
 
         </section>
     </main>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('JS/Acount.js') }}"></script>
 {% endblock %}

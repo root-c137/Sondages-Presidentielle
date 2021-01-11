@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Entity\VillesFranceFree;
 use App\Form\RegisterType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -45,41 +46,65 @@ GuardAuthenticatorHandler $Guard,LoginAuthenticator $Login): Response
         $EmailConstraint = new Assert\Email();
         $EmailConstraint->message = 'Adresse mail invalide.';
         $Errors = $Validator->validate($_POST['register']['email'], $EmailConstraint);
-
         $User = new User();
         $Form = $this->createForm(RegisterType::class, $User);
         $Form->handleRequest($Request);
 
         if($Form->isSubmitted() && $Form->isValid() && 0 === count($Errors) )
         {
-            $Doctrine = $this->getDoctrine()->getManager();
-            $BDD = $this->getDoctrine()->getRepository(User::class);
-            $UserTest =  $BDD->findOneBy(['email' => $User->getEmail()] );
-
-
-            if(!$UserTest)
+            $Age = $Form->get('datenaissance')->getData();
+            if(is_integer($Form->get('datenaissance')->getData()) && $Age > 0)
             {
-                $User = $Form->getData();
-                $Pass = $Encoder->encodePassword($User, $User->getPassword());
+                //On verifie si le code postal est correct...
+                if(preg_match("~^[0-9]{5}$~", $Form->get('codepostal')->getData() , $match) )
+                {
 
-                $User->setPassword($Pass);
+                    $Doctrine = $this->getDoctrine()->getManager();
+                    $BDD = $this->getDoctrine()->getRepository(User::class);
+                    $UserTest = $BDD->findOneBy(['email' => $User->getEmail()]);
 
-                $Doctrine = $this->getDoctrine()->getManager();
-                $Doctrine->persist($User);
-                $Doctrine->flush();;
+                    if (!$UserTest)
+                    {
+                        $User = $Form->getData();
+                        $Pass = $Encoder->encodePassword($User, $User->getPassword());
 
-                return $Guard->authenticateUserAndHandleSuccess($User,$Request,$Login,'main');
+                        $User->setPassword($Pass);
+
+                        $Doctrine->persist($User);
+                        $Doctrine->flush();
+
+                        return $Guard->authenticateUserAndHandleSuccess($User, $Request, $Login, 'main');
+                    } else
+                    {
+                        $this->addFlash("Err", "Cette adresse mail existe déjà..");
+                        return $this->redirectToRoute('register');
+                    }
+
+                }
+                //si code postal incorrect...
+                else
+                {
+                    $this->addFlash("Err", "Le code postal est incorrect.");
+                    return $this->redirectToRoute('register');
+                }
             }
+            //Si l'age n'est pas bon...
             else
-            dd("user existe déjà..");
+            {
+                $this->addFlash('Err', 'Veuillez entrer un age valide.');
+                return $this->redirectToRoute('register');
+            }
         }
         else
-            dd('err..'.count($Errors) );
+        {
+            if(count($Errors) > 0)
+                $this->addFlash('Err', 'Adresse mail invalide');
+            else
+                $this->addFlash('Err', 'Les mots de passes ne sont pas identiques..');
 
-        return $this->render('register/index.html.twig');
-    }
-
-
+           return  $this->redirectToRoute('register');
+        }
+}
 
 
 }

@@ -191,3 +191,4 @@ class Candidat
         return $this;
     }
 }
+

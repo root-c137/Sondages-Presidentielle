@@ -3,13 +3,20 @@
 namespace App\Form;
 
 use App\Entity\User;
+use CodePostalConstraint;
+use phpDocumentor\Reflection\Types\Integer;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\Type;
 
 class RegisterType extends AbstractType
 {
@@ -24,7 +31,29 @@ class RegisterType extends AbstractType
                 ],
                 'label_attr' => [
                     'class' => 'FormLabel'
-                ]
+                ],
+            ])
+            ->add('datenaissance', IntegerType::class, [
+                'label' => 'Age',
+                'attr' => [
+                    'class' => 'FormControl',
+                    'placeholder' => 'votre age..'
+                ],
+                'label_attr' => [
+                    'class' => 'FormLabel'
+                ],
+                'constraints' => array( new Type('integer') )
+
+            ])
+            ->add('codepostal', IntegerType::class, [
+                'label' => 'Code postal',
+                'attr' => [
+                    'class' => 'FormControl',
+                    'placeholder' => 'code postal..'
+                ],
+                'label_attr' => [
+                    'class' => 'FormLabel'
+                ],
             ])
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
