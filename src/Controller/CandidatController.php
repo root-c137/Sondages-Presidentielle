@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Candidat;
+use App\Entity\User;
+use App\Entity\Vote;
 use App\Form\CandidatFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,8 +18,28 @@ class CandidatController extends AbstractController
      */
     public function index(Candidat $Candidat): Response
     {
+        $Doc = $this->getDoctrine()->getManager();
+        $RepVote = $Doc->getRepository(Vote::class);
+        $RepUser = $Doc->getRepository(User::class);
+
+        $Votes = $RepVote->findAll();
+        $VoteByThisCandidat = $RepVote->findBy( ["Candidat" => $Candidat ] );
+
+        $Ages = [];
+
+        foreach($VoteByThisCandidat as $Vote)
+        {
+            $Ages[] = $Vote->getUser()->getDatenaissance();
+        }
+
+        //On calcul la moyenne d'age...
+        $SommeAges = array_sum($Ages);
+        $MoyenneAge = $SommeAges / count($VoteByThisCandidat);
+
         return $this->render('candidat/index.html.twig', [
-            'Candidat' => $Candidat
+            'Candidat' => $Candidat,
+            'TotalVote' => count($Votes),
+            'MoyenneAge' => $MoyenneAge
         ]);
     }
 

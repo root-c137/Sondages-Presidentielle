@@ -23,7 +23,7 @@ class Vote
     private $User;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Candidat::class, inversedBy="votes", )
+     * @ORM\ManyToOne(targetEntity=Candidat::class, inversedBy="votes" )
      */
     private $Candidat;
 
