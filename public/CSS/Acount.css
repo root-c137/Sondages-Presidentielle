@@ -18,6 +18,7 @@
 {
     width:100%;
     margin-top:0;
+    text-align: center;
 }
 .AcountInfos .Formulaire form
 {
@@ -32,6 +33,19 @@
     padding:1rem;
     box-shadow: 0 0 10px #ccc;
 
+}
+
+.GoModifier
+{
+    padding:0.5rem;
+    border:none;
+    outline:none;
+    background-color: #393e46;
+    color:#f1f2f3;
+    cursor:pointer;
+    display: block;
+    margin:auto;
+    margin-bottom:1rem;
 }
 
 @media only screen and (min-width: 150px)
