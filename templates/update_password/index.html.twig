@@ -2,19 +2,64 @@
 
 {% block title %}Hello UpdatePasswordController!{% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset("CSS/Inscription.css") }}"/>
+    <link rel="stylesheet" href="{{ asset('CSS/FormInscription.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('CSS/Acount.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('CSS/UpdatePassword.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('CSS/Errors.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('CSS/Notice.css') }}"/>
+
+{% endblock %}
+
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <main class="UpdatePasswordMain">
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/xampp/Sondages-Presidentielle.com/src/Controller/UpdatePasswordController.php'|file_link(0) }}">src/Controller/UpdatePasswordController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/xampp/Sondages-Presidentielle.com/templates/update_password/index.html.twig'|file_link(0) }}">templates/update_password/index.html.twig</a></code></li>
-    </ul>
-</div>
+        {% embed 'Partials/Error.html.twig' %}{% endembed %}
+        {% embed 'Partials/Notice.html.twig' %}{% endembed %}
+
+
+        <p class="Title">Modifier votre mot de passe</p>
+
+        <div class="Formulaire">
+            {{ form_start(Form) }}
+
+            <div class="FormGroup">
+                {{ form_widget(Form.password) }}
+                {{ form_label(Form.password) }}
+            </div>
+
+
+                <div class="FormGroup">
+                    {{
+                    form_widget(Form.new_password.first,{
+                        'attr' : {'class' : 'FormControl'}
+                    })
+                    }}
+                    {{
+                    form_label(Form.new_password.first, label|default(null),{
+                        'label_attr' : {'class' : 'FormLabel'}
+                    })
+                    }}
+                </div>
+
+            <div class="FormGroup">
+
+                {{
+                form_widget(Form.new_password.second,{
+                    'attr' : {'class' : 'FormControl'}
+                })
+                }}
+                {{
+                form_label(Form.new_password.second, label|default(null),{
+                    'label_attr' : {'class' : 'FormLabel'}
+                })
+                }}
+            </div>
+
+            {{ form_widget(Form.submit) }}
+            {{ form_end(Form) }}
+        </div>
+    </main>
 {% endblock %}
