@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}...{% endblock %}
+{% block title %}sondagespresidentielle - {{ Candidat.getFirstname() }}{{ Candidat.getLastname() }}{% endblock %}
 
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('CSS/CandidatPage.css') }}"/>
@@ -23,8 +23,22 @@
             </div>
 
             <div class="Chiffres">
-                <p class="TotalVote">Votes : {{ Candidat.getNbVote() }} ( {{ ((Candidat.getNbVote() / TotalVote) * 100)|number_format(2) }}%)</p>
-                <p>Moyenne d'age : {{ MoyenneAge }} ans</p>
+                <p class="TotalVote">Votes :
+                    {% if Candidat.getNbVote() == 0%}
+                        0
+                    {% else %}
+                        {{ Candidat.getNbVote() }} ( {{ ((Candidat.getNbVote() / TotalVote) * 100)|number_format(2) }}%)
+                    {% endif %}
+                </p>
+
+                <p>
+                    Moyenne d'age :
+                    {% if MoyenneAge == 0 %}
+                          0
+                    {% else %}
+                         {{ MoyenneAge }} ans
+                    {% endif %}
+                </p>
             </div>
 
         </section>

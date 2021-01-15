@@ -33,12 +33,20 @@ class CandidatController extends AbstractController
         }
 
         //On calcul la moyenne d'age...
+        $TotalVotesByThisCandidat = 1;
+        if(count($VoteByThisCandidat)> 0)
+            $TotalVotesByThisCandidat = count($VoteByThisCandidat);
+
         $SommeAges = array_sum($Ages);
-        $MoyenneAge = $SommeAges / count($VoteByThisCandidat);
+        $MoyenneAge = $SommeAges / $TotalVotesByThisCandidat;
+
+        $TotalVote = count($Votes);
+        if(count($Votes) == 0)
+            $TotalVote = 1;
 
         return $this->render('candidat/index.html.twig', [
             'Candidat' => $Candidat,
-            'TotalVote' => count($Votes),
+            'TotalVote' => $TotalVote,
             'MoyenneAge' => $MoyenneAge
         ]);
     }

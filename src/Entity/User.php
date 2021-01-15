@@ -31,9 +31,9 @@ class User implements UserInterface
 
     /**
      *
-     * @ORM\Column(name="roles", type="json", nullable=true)
+     * @ORM\Column(name="roles", type="json")
      */
-    private $roles;
+    private $roles = [];
 
     /**
      * @var string
@@ -81,6 +81,9 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * @see UserInterface
+     */
     public function getRoles(): ?array
     {
         $roles = $this->roles;
