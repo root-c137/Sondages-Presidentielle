@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Candidat;
+use App\Entity\Texte;
 use App\Form\CandidatFormType;
+use App\Form\TexteUpdateFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -69,5 +71,37 @@ class BackOfficeController extends AbstractController
             'Candidat' => $Candidat,
         ]);
     }
+
+
+
+    /**
+     * @Route("/backo/textes", name="TxtBackoForm")
+     */
+    public function UpdateTxtForm(): Response
+    {
+        $Texte = new Texte();
+        $Form = $this->createForm(TexteUpdateFormType::class, $Texte, [
+            'method' => 'POST',
+            'action' => $this->generateUrl('UpdateTxt')
+        ]);
+
+        return $this->render('back_office/Textes.html.twig', [
+            'Form' => $Form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/backo/textes/updatetxt/", name="UpdateTxt")
+     */
+    public function UpdateTxt(): Response
+    {
+
+        dd('cc');
+        return $this->render('back_office/Textes.html.twig');
+    }
+
+
+
+
 
 }

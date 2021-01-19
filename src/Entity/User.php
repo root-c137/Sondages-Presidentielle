@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -60,6 +62,16 @@ class User implements UserInterface
      * @ORM\OneToOne(targetEntity=Vote::class, mappedBy="User")
      */
     private $vote;
+
+    /**
+     * @ORM\OneToMany(targetEntity=ResetPassword::class, mappedBy="user")
+     */
+    private $resetPasswords;
+
+    public function __construct()
+    {
+        $this->resetPasswords = new ArrayCollection();
+    }
 
     //................................................................................................................
 
@@ -182,5 +194,35 @@ class User implements UserInterface
     public function eraseCredentials()
     {
         // TODO: Implement eraseCredentials() method.
+    }
+
+    /**
+     * @return Collection|ResetPassword[]
+     */
+    public function getResetPasswords(): Collection
+    {
+        return $this->resetPasswords;
+    }
+
+    public function addResetPassword(ResetPassword $resetPassword): self
+    {
+        if (!$this->resetPasswords->contains($resetPassword)) {
+            $this->resetPasswords[] = $resetPassword;
+            $resetPassword->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeResetPassword(ResetPassword $resetPassword): self
+    {
+        if ($this->resetPasswords->removeElement($resetPassword)) {
+            // set the owning side to null (unless already changed)
+            if ($resetPassword->getUser() === $this) {
+                $resetPassword->setUser(null);
+            }
+        }
+
+        return $this;
     }
 }

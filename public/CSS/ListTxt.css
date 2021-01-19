@@ -1,0 +1,57 @@
+
+.ListTxt
+{
+    width:100%;
+    display:flex;
+    flex-display: colum;
+    justify-content: center;
+    align-items: center;
+}
+
+.ListTxt table
+{
+    width:100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.ListTxt table td, .ListTxt table th
+{
+    border:1px solid #ccc;
+    text-align: center;
+    padding:1rem;
+}
+
+
+@media only screen and (min-width:300px)
+{
+    .ListTxt
+    {
+        width:100%;
+    }
+}
+
+@media only screen and (min-width:900px)
+{
+    .ListTxt
+    {
+        width:90%;
+    }
+}
+
+@media only screen and (min-width:1200px)
+{
+    .ListTxt
+    {
+        width:50%;
+    }
+}
+
+@media only screen and (min-width:1400px)
+{
+    .ListTxt
+    {
+        width:40%;
+    }
+}

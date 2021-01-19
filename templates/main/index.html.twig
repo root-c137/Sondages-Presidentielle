@@ -5,12 +5,14 @@
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset("CSS/Home.css") }}"/>
     <link rel="stylesheet" href="{{ asset("CSS/Card.css") }}"/>
+    <link rel="stylesheet" href="{{ asset('CSS/Notice.css') }}"/>
 
 {% endblock %}
 
 {% block body %}
 
     <main class="MainHome">
+        {% embed 'Partials/Notice.html.twig' %}{% endembed %}
 
         <section class="Timeout">
             <h3 id="TimeOut">200 jours avant les élections</h3>

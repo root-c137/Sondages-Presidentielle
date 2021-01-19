@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ResetPasswordController!{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('CSS/ForgotPassword.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('CSS/FloatLabel.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('CSS/Errors.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('CSS/Notice.css') }}"/>
+
+
+{% endblock %}
+
+{% block body %}
+
+    <section class="MainForgotPassword">
+
+        {% embed 'Partials/Error.html.twig' %}{% endembed %}
+        {% embed 'Partials/Notice.html.twig' %}{% endembed %}
+
+        <h3 class="Title">Changez votre mot de passe</h3>
+
+        {{ form_start(Form) }}
+
+        <div class="FormGroup">
+            {{
+            form_widget(Form.new_password.first,{
+                'attr' : {'class' : 'FormControl'}
+            })
+            }}
+            {{
+            form_label(Form.new_password.first, label|default(null),{
+                'label_attr' : {'class' : 'FormLabel'}
+            })
+            }}
+        </div>
+
+        <div class="FormGroup">
+
+            {{
+            form_widget(Form.new_password.second,{
+                'attr' : {'class' : 'FormControl'}
+            })
+            }}
+            {{
+            form_label(Form.new_password.second, label|default(null),{
+                'label_attr' : {'class' : 'FormLabel'}
+            })
+            }}
+        </div>
+
+        {{ form_widget(Form.submit)  }}
+        {{ form_end(Form) }}
+
+    </section>
+{% endblock %}

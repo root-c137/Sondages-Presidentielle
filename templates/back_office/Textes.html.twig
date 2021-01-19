@@ -1,0 +1,48 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BackOfficeController!{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('CSS/Backo.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('CSS/ListTxt.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('CSS/FloatLabel.css') }}"/>
+
+{% endblock %}
+
+{% block body %}
+
+    <main class="BackoMain">
+
+        <h3>Les Textes..</h3>
+
+        <div class="ListTxt">
+
+            <table>
+                <tr>
+                    <th>Texte</th>
+                    <th>Location</th>
+                    <th>Modifier</th>
+                </tr>
+                <tr>
+                    <td>
+                        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab hic modi molestiae neque,
+                            nihil nisi nostrum nulla perferendis qui quia tempora unde? Aliquid deserunt est incidunt
+                            possimus quae, quibusdam vel?
+                        </div>
+                    </td>
+                    <td>
+                        home
+                    </td>
+                    <td>
+                        <button class="UpdateTxtButton">Modifier</button>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+    </main>
+
+{% endblock %}
+

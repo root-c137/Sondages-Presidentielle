@@ -27,6 +27,14 @@ form
     cursor: pointer;
 }
 
+.LinkPasswordReset
+{
+    display:inline-block;
+    margin-top:-30px;
+    margin-left:5px;
+    font-size:0.77rem;
+}
+
 @media only screen and (min-width: 1000px)
 {
     form

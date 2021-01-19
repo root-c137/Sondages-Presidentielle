@@ -16,14 +16,12 @@
 
             <ul class="Nav">
                 <li><a href="{{ path('AddCandidatForm') }}" class="LinkMenu">Ajouter un candidat</a> </li>
-                <li><a href="#" class="LinkMenu">Ajouter un sondage</a> </li>
-                <li><a href="#" class="LinkMenu">Les textes..</a> </li>
+                <li><a href="{{ path('TxtBackoForm') }}" class="LinkMenu">Les textes..</a> </li>
             </ul>
         </section>
 
         <section class="ListCandidat">
 
-            <a href="#" class="CandidatOrSandage">Affichier les sondages</a>
             <table class="ListTable">
                 <tr>
                     <th>Nom</th>
@@ -42,9 +40,9 @@
                         <td class="Col">{{Candidat.getAge()}}</td>
                         <td class="Col">{{Candidat.getParti()}}</td>
                         <td class="Col">{{Candidat.getWiki()}}</td>
-                        <td class="Col">0</td>
+                        <td class="Col">{{ Candidat.getNbVote() }}</td>
                         <td class="Col"><a href="{{ path('UpdateCandidatForm', {'slug' : Candidat.getSlug()}) }}" class="LinkAction">Modifier</a></td>
-                        <td class="Col"><a href="{{ path('DeleteCandidatForm', {'slug' : Candidat.getSlug() }) }}" class="LinkAction">Supprimé</a></td>
+                        <td class="Col"><a href="{{ path('DeleteCandidatForm', {'slug' : Candidat.getSlug() }) }}" class="LinkAction">Supprimer</a></td>
                     </tr>
                 {% endfor %}
 
