@@ -40,8 +40,7 @@ class AcountController extends AbstractController
                                GuardAuthenticatorHandler $Guard,LoginAuthenticator $Login): Response
     {
 
-
-        $User = $this->getUser();
+        $User = new User();
         $Form = $this->createForm(UpdateUserFormType::class, $User);
         $Form->handleRequest($Request);
 
@@ -57,16 +56,27 @@ class AcountController extends AbstractController
                 //On verifie si le code postal est correct...
                 if(preg_match("~^[0-9]{5}$~", $Form->get('codepostal')->getData() , $match) )
                 {
-
                     $Doctrine = $this->getDoctrine()->getManager();
                     $BDD = $this->getDoctrine()->getRepository(User::class);
-                    $UserTest = $BDD->findOneBy(['email' => $User->getEmail()]);
 
-                    if (!$UserTest)
+                    $OKForUpdate = true;
+
+                    if($this->getUser()->getEmail() != $Form->get('email')->getData() )
                     {
-                        $User = $Form->getData();
+                        $UserTest = $BDD->findOneBy(['email' => $User->getEmail()]);
+                        if($UserTest)
+                        {
+                            $OKForUpdate = false;
+                        }
+                    }
 
-                        $Doctrine->persist($User);
+                    if ($OKForUpdate)
+                    {
+                        $User = $this->getUser();
+                        $User->setDatenaissance($Form->get('datenaissance')->getData() );
+                        $User->setCodepostal($Form->get('codepostal')->getData() );
+                        $User->setEmail($Form->get('email')->getData() );
+
                         $Doctrine->flush();
 
                         return $this->redirectToRoute('acount');

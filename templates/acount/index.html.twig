@@ -57,10 +57,10 @@
                         <td>Adresse mail : {{ app.user.getEmail() }}</td>
                     </tr>
                     <tr>
-                        <td>Code postal : 69000</td>
+                        <td>Code postal : {{ app.user.getCodePostal() }}</td>
                     </tr>
                     <tr>
-                        <td>Date de naissance : 21/08/1995</td>
+                        <td>Age : {{ app.user.getDatenaissance() }} ans</td>
                     </tr>
                     <tr>
                         <td>Mot de passe : ******</td>
