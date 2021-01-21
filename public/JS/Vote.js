@@ -32,12 +32,25 @@ let Vote =
                     {
                         if(response.status == 201)
                         return response.json();
+                        if(response.status == 200) {
+                            return response.json();
+                        }
                     }
                 )
-                .then(function(response)
+                .then(function(response, status)
                 {
-                    Vote.updateButton(ButtonVote, ParentElm, JSON.stringify(response) );
-                    Vote.updatePourcentBarre(response);
+
+                    if(response['Status'] == 201)
+                    {
+                        Vote.updateButton(ButtonVote, ParentElm, JSON.stringify(response));
+                        Vote.updatePourcentBarre(response);
+                    }
+                    if(response['Status'] == 200)
+                    {
+                        window.location.href = response['RedirectURL'];
+                    }
+
+
 
                 })
                 .catch(error => alert("Erreur : " + error))
