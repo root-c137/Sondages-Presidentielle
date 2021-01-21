@@ -29,16 +29,15 @@ class MainController extends AbstractController
             $TotalVote = 1;
 
         $VoteActuel = '';
-        if($this->getUser())
-        {
-            if($this->getUser()->getVote() != null)
-            {
+        if($this->getUser()) {
+            if ($this->getUser()->getVote() != null) {
                 $VoteActuel = $this->getUser()->getVote()->getCandidat();
 
                 $Session = new Session();
                 $Session->set('VoteActuel', $VoteActuel);
             }
         }
+
 
         return $this->render('main/index.html.twig',[
             'Candidats' => $Candidats,

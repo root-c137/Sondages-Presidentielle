@@ -50,8 +50,6 @@ let Vote =
                         window.location.href = response['RedirectURL'];
                     }
 
-
-
                 })
                 .catch(error => alert("Erreur : " + error))
             ;
@@ -63,8 +61,21 @@ let Vote =
             let CandidatCard = document.querySelector(".Card"+C['CandidatActuel']);
             let LastCandidatCard;
 
-            ButtonVote.textContent = 'Votre vote - annuler';
-            ButtonVote.className = 'Voter AnnulerVote';
+            let ButtonTXT = 'Voter';
+            let ClassButton = 'Voter';
+            if(ButtonVote.textContent == 'Voter')
+            {
+                ButtonTXT = 'Votre vote - annuler';
+                ClassButton = 'Voter AnnulerVote';
+            }
+            else
+            {
+                ButtonTXT = 'Voter';
+                ClassButton = 'Voter';
+            }
+
+            ButtonVote.textContent = ButtonTXT;
+            ButtonVote.className = ClassButton;
 
             Vote.updateAllButtons(CandidatCard.className.split(' ') );
         },
@@ -87,12 +98,24 @@ let Vote =
             let BarrePourcent = document.querySelectorAll('.BarrePourcent');
             let PourcentTXT = document.querySelectorAll('.Pourcent');
 
-            console.log(Response);
             for(let i=0; i < BarrePourcent.length; i+=1)
             {
-                BarrePourcent[i].style.width = ( Response['NbVotesArray'][i] / Response['TotalVote'] ) * 100+'%';
-                PourcentTXT[i].textContent = (( Response['NbVotesArray'][i] / Response['TotalVote'] ) * 100).toFixed(2)+'%';
+                console.log(Response['TotalVote'] );
+                let Width = (( Response['NbVotesArray'][i] / Response['TotalVote'] ) * 100);
+
+                if(!Vote.isInt(Width) )
+                    Width = Width.toFixed(2);
+
+                if(isNaN(Width) )
+                    Width = 0;
+
+                BarrePourcent[i].style.width = Width+'%';
+                PourcentTXT[i].textContent = Width+'%';
             }
+        },
+        isInt : function(N)
+        {
+            return N % 1 === 0;
         }
     }
 

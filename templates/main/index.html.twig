@@ -31,7 +31,14 @@
                     <a class="CardName {{ Candidat.getSlug() }}" href="{{ path('candidat', {'slug' : Candidat.getSlug() } ) }}">{{ Candidat.getFirstname }} {{ Candidat.getLastname }}</a>
                     <div class="BackgroundLoad">
                         <div class="BarrePourcent" style="width:{{ ((Candidat.getVotes()|length / TotalVote) * 100)|number_format(2) }}%;"></div>
-                        <p class="Pourcent">{{ ((Candidat.getVotes()|length / TotalVote) * 100)|number_format(2) }}%</p>
+
+                        {% if ((Candidat.getVotes()|length / TotalVote) * 100) matches '/^\\d+$/' %}
+
+                            <p class="Pourcent">{{ ((Candidat.getVotes()|length / TotalVote) * 100)}}%</p>
+                        {% else %}
+                            <p class="Pourcent">{{ ((Candidat.getVotes()|length / TotalVote) * 100)|number_format(2)}}%</p>
+                        {% endif %}
+
                     </div>
 
                         {% if app.session.get('VoteActuel') == Candidat %}
