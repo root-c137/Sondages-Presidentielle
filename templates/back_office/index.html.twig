@@ -4,13 +4,15 @@
 
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('CSS/Backo.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('CSS/Notice.css') }}"/>
+
 {% endblock %}
 
 {% block body %}
 
     <main class="BackoMain">
 
-        <h2 class="TitleBacko">BACK OFFICE Sondages-presidentielle.com</h2>
+        {% embed 'Partials/Notice.html.twig' %}{% endembed %}
 
         <section class="NavBacko">
 

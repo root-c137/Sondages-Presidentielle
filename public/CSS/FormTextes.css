@@ -1,0 +1,22 @@
+
+.FormTxt
+{
+    width:100%;
+    margin:auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.Formulaire
+{
+    width:40%;
+    margin:auto;
+}
+.Formulaire form
+{
+    display: flex;
+    flex-direction: column;
+    padding:0;
+}

@@ -12,15 +12,13 @@
 {% block body %}
 
     <main class="MainHome">
-        {% embed 'Partials/Notice.html.twig' %}{% endembed %}
 
         <section class="Timeout">
             <h3 id="TimeOut">200 jours avant les élections</h3>
         </section>
 
         <section class="HeadMain">
-            <p>Parmis tous ces personnages politiques, lequel souhaiteriez vous voir remporter les prochaines élections présidentielle de
-            2022 ?</p>
+            <p>{{ Texte.getTxt() }}</p>
         </section>
 
         <section class="CardList">

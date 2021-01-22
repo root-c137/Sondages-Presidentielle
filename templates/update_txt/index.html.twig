@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UpdateTxtController!{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('CSS/Backo.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('CSS/FloatLabel.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('CSS/FormBacko.css') }}"/>
+
+{% endblock %}
+
+
+{% block body %}
+
+    <main class="BackoMain">
+
+        <section class="FormSection">
+
+            <div class="Formulaire">
+            {{ form_start(Form) }}
+
+            <div class="FormGroup">
+                {{ form_widget(Form.txt) }}
+                {{ form_label(Form.txt) }}
+            </div>
+
+            <div class="FormGroup">
+                {{ form_widget(Form.location) }}
+                {{ form_label(Form.location) }}
+            </div>
+                {% if Mode == 'Update' %}
+                    {{ form_widget(Form.submit, {'label':'Modifier'}) }}
+                {% elseif Mode == 'Add' %}
+                    {{ form_widget(Form.submit, {'label':'Ajouter'}) }}
+                {% endif %}
+
+                {{ form_end(Form) }}
+             </div>
+
+        </section>
+    </main>
+{% endblock %}

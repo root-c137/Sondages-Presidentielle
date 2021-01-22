@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Candidat;
+use App\Entity\Texte;
 use App\Entity\Vote;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,9 +21,11 @@ class MainController extends AbstractController
         $Doc = $this->getDoctrine()->getManager();
         $RepCandidat = $Doc->getRepository(Candidat::class);
         $RepVote = $Doc->getRepository(Vote::class);
+        $RepTextes = $Doc->getRepository(Texte::class);
 
         $Candidats = $RepCandidat->findAll();
         $Votes = $RepVote->findAll();
+        $Texte = $RepTextes->findOneBy(['location' => 'home']);
 
         $TotalVote = count($Votes);
         if($TotalVote == 0)
@@ -42,6 +45,7 @@ class MainController extends AbstractController
         return $this->render('main/index.html.twig',[
             'Candidats' => $Candidats,
             'TotalVote' => $TotalVote,
+            'Texte' => $Texte
         ]);
     }
 

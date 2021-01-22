@@ -79,27 +79,15 @@ class BackOfficeController extends AbstractController
      */
     public function UpdateTxtForm(): Response
     {
-        $Texte = new Texte();
-        $Form = $this->createForm(TexteUpdateFormType::class, $Texte, [
-            'method' => 'POST',
-            'action' => $this->generateUrl('UpdateTxt')
-        ]);
+        $Doc = $this->getDoctrine()->getManager();
+        $TxtRep = $Doc->getRepository(Texte::class);
+
+        $Textes = $TxtRep->findAll();
 
         return $this->render('back_office/Textes.html.twig', [
-            'Form' => $Form->createView()
+            'Textes' => $Textes
         ]);
     }
-
-    /**
-     * @Route("/backo/textes/updatetxt/", name="UpdateTxt")
-     */
-    public function UpdateTxt(): Response
-    {
-
-        dd('cc');
-        return $this->render('back_office/Textes.html.twig');
-    }
-
 
 
 

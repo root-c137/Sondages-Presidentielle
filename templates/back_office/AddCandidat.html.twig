@@ -6,7 +6,7 @@
 
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('CSS/Backo.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('CSS/AddCandidat.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('CSS/FormBacko.css') }}"/>
 {% endblock %}
 
 {% block body %}
@@ -16,7 +16,8 @@
         {% for Msg in app.flashes('Msg') %}
             <p class="WarningMsg">{{ Msg }}</p>
         {% endfor %}
-        <section class="AddCandidatForm">
+
+        <section class="FormSection">
 
             <div class="Formulaire">
                 {{ form_start(Form) }}
