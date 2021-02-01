@@ -21,9 +21,9 @@ class SendMail
     public function execute()
     {
         $email = (new TemplatedEmail())
-            ->from('rootem21@gmail.com')
-            ->to('mr.moussawalid@gmail.com')
-            ->subject('I love Me')
+            ->from('test@test.fr')
+            ->to('rootbugamestudio@gmail.com')
+            ->subject('Mot de passe oublié - sondagepresidentielle.xyz')
             ->context([
                 'URL' => $this->URL
               ])
@@ -35,3 +35,4 @@ class SendMail
         $this->mailer->send($email);
     }
 }
+

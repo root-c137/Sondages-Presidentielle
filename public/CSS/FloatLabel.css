@@ -1,10 +1,8 @@
 
 .FormControl
 {
-    height:2.3rem;
     border:1px solid #e0e0e0;
     outline: none;
-    margin-bottom:0.9rem;
     padding: 17px 8px 4px 6px;
     resize: none;
     border:1px solid red;
@@ -16,13 +14,17 @@
 
 .FormGroup
 {
-    margin-bottom: 0.2rem;
     transition: all .3s;
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     width:100%;
+}
+.Inscription .FormGroup
+{
+    height:2.9rem;
+    padding:0.2rem;
 }
 
 .FormLabel
@@ -31,7 +33,7 @@
     color:#aaa;
     opacity:1;
     display: block;
-    transform: translate3d(0, -3em, 0) scale(1);
+    transform: translate3d(0, -2em, 0) scale(1);
     transform-origin: left top;
     transition: all .3s;
     margin-left:0.3rem;
@@ -41,7 +43,7 @@
 
 .Inscription .FormLabel
 {
-    transform: translate3d(0, -3.7em, 0) scale(1);
+    transform: translate3d(0, -2.5em, 0) scale(1);
     margin-left:0;
 }
 
@@ -56,7 +58,6 @@
     width:100%;
     border-color: #ccc;
     transition:all .5s;
-
 }
 
 .FormControl::placeholder
@@ -67,13 +68,13 @@
 .FormControl:focus + .FormLabel,
 .FormControl:not(:placeholder-shown) + .FormLabel
 {
-    transform: translate3d(0, -3em, 0) scale(0.55);
+    transform: translate3d(0, -2em, 0) scale(0.55);
 }
 
 .Inscription .FormControl:focus + .FormLabel,
 .Inscription .FormControl:not(:placeholder-shown) + .FormLabel
 {
-    transform: translate3d(0, -3.4em, 0) scale(0.55);
+    transform: translate3d(0, -2.4em, 0) scale(0.55);
 }
 
 
@@ -84,16 +85,11 @@
 }
 
 
-
 .FormControl:focus
 {
     box-shadow:none;
     outline:none;
     border-color: #1c1d21;
     box-shadow: 0 0 10px #ccc;
-
-}
-.FormGroup:focus-within
-{
 
 }
