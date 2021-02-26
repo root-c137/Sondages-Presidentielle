@@ -5,7 +5,6 @@
     outline: none;
     padding: 17px 8px 4px 6px;
     resize: none;
-    border:1px solid red;
 }
 .Textarea
 {
@@ -49,7 +48,7 @@
 
 .FormLabelTextarea
 {
-    transform: translate3d(0, -10.5em, 0) scale(1);
+    transform: translate3d(0, -9.5em, 0) scale(1);
 }
 
 .FormControl
@@ -81,7 +80,7 @@
 .Textarea:focus + .FormLabelTextarea,
 .Textarea:not(:placeholder-shown) + .FormLabelTextarea
 {
-    transform: translate3d(0, -10.5em, 0) scale(0.55);
+    transform: translate3d(0, -9.5em, 0) scale(0.55);
 }
 
 

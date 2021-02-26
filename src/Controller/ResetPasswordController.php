@@ -74,8 +74,9 @@ class ResetPasswordController extends AbstractController
 
                 $UrlReset = "https://sondagepresidentielle.xyz".$this->generateUrl('ResetPassword', ['Token' => $ResetPass->getToken()]);
 
-                $Mail = new SendMail($Mailer, $ResetPass->getToken());
-                $Mail->execute();
+                $Mail = new SendMail();
+                $Mail->send($User->getEmail(), $UrlReset);
+
                 $this->addFlash('Msg', 'Vous allez bientôt recevoir un mail contenant un lien pour 
                 redéfinir votre mot de passe.');
 

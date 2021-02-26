@@ -27,25 +27,11 @@
         {% endif %}
 
         <section class="Presentation">
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
-                    corporis eius facilis nam perspiciatis provident. Asperiores dolor eius ipsa quas quia? A
-                    fugit inventore quibusdam reiciendis velit vitae voluptates! Laborum!
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
-                    corporis eius facilis nam perspiciatis provident. Asperiores dolor eius ipsa quas quia? A
-                    fugit inventore quibusdam reiciendis velit vitae voluptates! Laborum!
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
-                    corporis eius facilis nam perspiciatis provident. Asperiores dolor eius ipsa quas quia? A
-                    fugit inventore quibusdam reiciendis velit vitae voluptates! Laborum!
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
-                    corporis eius facilis nam perspiciatis provident. Asperiores dolor eius ipsa quas quia? A
-                    fugit inventore quibusdam reiciendis velit vitae voluptates! Laborum!
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
-                    corporis eius facilis nam perspiciatis provident. Asperiores dolor eius ipsa quas quia? A
-                    fugit inventore quibusdam reiciendis velit vitae voluptates! Laborum!
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
-                    corporis eius facilis nam perspiciatis provident. Asperiores dolor eius ipsa quas quia? A
-                    fugit inventore quibusdam reiciendis velit vitae voluptates! Laborum!</p>
+            {% if not app.user %}
+                <p>{{ TxtInscription }}</p>
+                {% else %}
+                    <p>Vous avez déjà un compte..</p>
+            {% endif %}
         </section>
 
     </main>

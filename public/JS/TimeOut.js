@@ -14,6 +14,7 @@ let TimeOut =
 
             let Date_TxtResult = Heure+"h "+Minutes+"m "+Secondes+"s";
 
+            console.log(Date_TxtResult);
             return Now;
         },
         updateDate : function()
@@ -22,7 +23,18 @@ let TimeOut =
             let DateElections = new Date("2022-04-08 00:00:00");
 
             let Diff = TimeOut.CalculDateDiff(TimeOut.getDate(), DateElections);
-            TimeOutElm.textContent = 'Prochaine élection dans : '+Diff.day+' jours '+Diff.hour+' heures et '+Diff.sec+' secondes';
+            let SecondsTxt = "secondes";
+            let HeuresTxt = "heures";
+            let JoursTxt = "jours";
+
+            if(Diff.sec <= 1)
+                SecondsTxt = "seconde";
+            if(Diff.hour <= 1)
+                HeuresTxt = "heure";
+            if(Diff.day <= 1)
+                JoursTxt = "jour";
+
+            TimeOutElm.textContent = 'Prochaine élection dans : '+Diff.day+' '+JoursTxt+' '+Diff.hour+' '+HeuresTxt+' '+Diff.sec+' '+SecondsTxt;
         },
         CalculDateDiff : function(date1, date2)
         {

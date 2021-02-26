@@ -4,3 +4,18 @@
     height:1rem;
     color:#B0413E;
 }
+
+.ErrPage
+{
+    margin:auto;
+    margin-top:5rem;
+    padding:1rem;
+    font-weight: bold;
+    font-size:2rem;
+    text-align: center;
+}
+
+.Message404
+{
+    text-align: center;
+}

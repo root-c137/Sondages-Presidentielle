@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Texte;
 use App\Entity\User;
-use App\Entity\VillesFranceFree;
 use App\Form\RegisterType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -24,6 +24,11 @@ class RegisterController extends AbstractController
      */
     public function index(): Response
     {
+        $Doc = $this->getDoctrine()->getManager();
+        $RepTxt = $Doc->getRepository(Texte::class);
+
+        $TxtInscription = $RepTxt->findOneBy(['location' => 'inscription']);
+
         $User = new User();
         $Form = $this->createForm(RegisterType::class, $User, [
             'action' => $this->generateUrl('newuser'),
@@ -33,6 +38,7 @@ class RegisterController extends AbstractController
 
         return $this->render('register/index.html.twig', [
             'Form' => $Form->createView(),
+            'TxtInscription' => $TxtInscription->getTxt()
         ]);
     }
 

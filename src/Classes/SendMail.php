@@ -2,37 +2,48 @@
 
 namespace App\Classes;
 
+use Mailjet\Client;
+use Mailjet\Resources;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mime\Email;
 
 
 class SendMail
 {
-    protected static $defaultName = 'send:email';
-    private $mailer;
-    private $URL;
+    private $Api_Key = '5b2ccc83799e166ea583ffaf46cf787a';
+    private $Api_Key_Secret = '923784f11810a991ccbd8c3316cbb740';
 
-    public function __construct($mailer, $URL)
+
+    public function send($to_mail,  $Content)
     {
-        $this->mailer = $mailer;
-        $this->URL = $URL;
-    }
-    public function execute()
-    {
-        $email = (new TemplatedEmail())
-            ->from('test@test.fr')
-            ->to('rootbugamestudio@gmail.com')
-            ->subject('Mot de passe oublié - sondagepresidentielle.xyz')
-            ->context([
-                'URL' => $this->URL
-              ])
-            ->htmlTemplate('Mail/PasswordReset.html.twig');
-        // if you want use template from your twig file
-        // template/emails/registration.html.twig
+        $mj  = new Client($this->Api_Key, $this->Api_Key_Secret, true,['version' => 'v3.1']);
+        $body = [
+            'Messages' => [
+                [
+                    'From' => [
+                        'Email' => "contact@sondagepresidentielle.xyz",
+                        'Name' => "sondagepresidentielle.xyz"
+                    ],
+                    'To' => [
+                        [
+                            'Email' => $to_mail,
+                            'Name' => "passenger 1"
+                        ]
+                    ],
+                    'TemplateID' => 2379529,
+                    'TemplateLanguage' => true,
+                    'Subject' => "Modifiez votre mot de passe",
+                    'Variables' => [
+                        "Content"=> $Content
+                    ]
+                ]
+            ]
+        ];
 
-
-        $this->mailer->send($email);
+        $response = $mj->post(Resources::$Email, ['body' => $body]);
+        $response->success();
     }
 }
 
