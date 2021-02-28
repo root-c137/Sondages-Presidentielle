@@ -24,6 +24,11 @@ class SecurityController extends AbstractController
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
+        if(count((array) $error) > 0 )
+        {
+            $this->addFlash('Err', 'Adresse mail ou mot de passe inccorect.');
+        }
+
         return $this->redirectToRoute('main');
     }
 

@@ -1,4 +1,6 @@
 
+{% embed 'Partials/Error.html.twig' %}{% endembed %}
+
 <form action="{{ path('login') }}" method="post">
 
     <div class="FormGroup">
@@ -21,5 +23,7 @@
         <button class="GoConnexion" type="submit">
             Connexion
         </button>
+
 </form>
+
 

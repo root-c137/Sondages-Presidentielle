@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Inscription{% endblock %}
+{% block title %}sondagepresidentielle.xyz - Inscription{% endblock %}
 
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('CSS/Inscription.css') }}"/>
@@ -12,6 +12,15 @@
 
     <main class="InscriptionPresentation">
 
+
+        <section class="Presentation">
+            {% if not app.user %}
+                <p>{{ TxtInscription }}</p>
+            {% else %}
+                <p>Vous avez déjà un compte..</p>
+            {% endif %}
+        </section>
+
         {% if not app.user %}
 
             <section class="Inscription">
@@ -19,20 +28,11 @@
              {% embed 'Partials/Error.html.twig' %}{% endembed %}
 
                 <div class="Formulaire">
-                    <h2 class="TitleInscription">Inscrivez-vous pour pouvoir voter</h2>
                     {% embed 'register/FormInscription.html.twig' %}{% endembed %}
                 </div>
             </section>
 
         {% endif %}
-
-        <section class="Presentation">
-            {% if not app.user %}
-                <p>{{ TxtInscription }}</p>
-                {% else %}
-                    <p>Vous avez déjà un compte..</p>
-            {% endif %}
-        </section>
 
     </main>
 {% endblock %}

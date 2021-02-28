@@ -4,7 +4,7 @@
         <section class="HeaderNav">
             <h1 class="Title"><a href="{{ path('main') }}">sondagepresidentielle.xyz</a></h1>
 
-            {% if app.user is not defined %}
+            {% if not app.user  %}
             <nav class="Menu">
                 <ul>
                     <li><a class="LinkMenu" href=" {{ path('register') }}">Inscription</a></li>
