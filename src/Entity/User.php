@@ -68,6 +68,11 @@ class User implements UserInterface
      */
     private $resetPasswords;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Mp;
+
     public function __construct()
     {
         $this->resetPasswords = new ArrayCollection();
@@ -222,6 +227,18 @@ class User implements UserInterface
                 $resetPassword->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getMp(): ?string
+    {
+        return $this->Mp;
+    }
+
+    public function setMp(string $Mp): self
+    {
+        $this->Mp = $Mp;
 
         return $this;
     }

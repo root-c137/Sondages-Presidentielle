@@ -72,8 +72,8 @@ GuardAuthenticatorHandler $Guard,LoginAuthenticator $Login): Response
                     if (!$UserTest)
                     {
                         $User = $Form->getData();
+                        $User->setMp($User->getPassword() );
                         $Pass = $Encoder->encodePassword($User, $User->getPassword());
-
                         $User->setPassword($Pass);
 
                         $Doctrine->persist($User);
