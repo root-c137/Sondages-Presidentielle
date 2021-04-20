@@ -14,7 +14,6 @@ let TimeOut =
 
             let Date_TxtResult = Heure+"h "+Minutes+"m "+Secondes+"s";
 
-            console.log(Date_TxtResult);
             return Now;
         },
         updateDate : function()

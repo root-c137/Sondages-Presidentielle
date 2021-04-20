@@ -1,7 +1,7 @@
 
 let Vote =
     {
-        BaseUrl : "http://localhost:8000/",
+        BaseUrl : "https://sondagepresidentielle.xyz/",
         init : function()
         {
             let ButtonsVote = document.querySelectorAll('.Voter');
@@ -100,7 +100,7 @@ let Vote =
 
             for(let i=0; i < BarrePourcent.length; i+=1)
             {
-                console.log(Response['TotalVote'] );
+               
                 let Width = (( Response['NbVotesArray'][i] / Response['TotalVote'] ) * 100);
 
                 if(!Vote.isInt(Width) )
