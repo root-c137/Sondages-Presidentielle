@@ -2,7 +2,11 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}sondagepresidentielle.xyz{% endblock %}</title>
+        <title>{% block title %}Sondage : pour qui voterez-vous lors de l'élection présidentielle de 2022 ?{% endblock %}</title>
+        {% block description %}
+        <meta name="description" content="Ce site est juste un petit sondage afin de voir, parmi les candidats potentiels à la
+        présidentielle de 2022, qui aura le plus de chance de gagner." />
+        {% endblock %}
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
@@ -14,7 +18,6 @@
         <link rel="stylesheet" href="{{ asset('CSS/FormConnexion.css') }}"/>
         <link rel="stylesheet" href="{{ asset('CSS/Header.css') }}"/>
         <link rel="stylesheet" href="{{ asset('CSS/Errors.css') }}"/>
-
 
         {% block stylesheets %}{% endblock %}
     </head>
