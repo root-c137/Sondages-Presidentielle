@@ -1,9 +1,15 @@
 
 let Vote =
     {
+
         BaseUrl : "http://localhost:8000/",
         init : function()
         {
+            let LocationOrigin = window.location.origin;
+            if(LocationOrigin === "https://sondagepresidentielle.xyz")
+                this.BaseUrl = LocationOrigin+"/";
+
+
             let ButtonsVote = document.querySelectorAll('.Voter');
 
             for(let i=0;i<ButtonsVote.length;i+=1)
