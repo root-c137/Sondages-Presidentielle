@@ -20,6 +20,12 @@
     padding:1rem;
 }
 
+.PoliticIcon
+{
+    width:60px;
+}
+
+
 .Label
 {
     font-weight: bold;
@@ -31,19 +37,36 @@
 .InfosCandidat
 {
     display: flex;
-    justify-content: center;
     align-items: flex-start;
     flex-wrap: nowrap;
-    border:1px solid #ccc;
-    border-radius:20px;
-    padding:0.7rem;
-    box-shadow: 0 0 10px #ccc;
+    border:1px solid lightgray;
+    padding:10px;
+    padding-left:40px;
+    margin-top:20px;
+    position: relative;
 }
+.InfosIcon
+{
+    width:25px;
+    position:absolute;
+    left:5px;
+    top:5px;
+}
+
 .Chiffres
 {
     padding:1rem;
 }
 
+.NbVotes
+{
+    width:20px;
+}
+
+strong
+{
+    font-weight: bold;
+}
 @media only screen and (min-width: 300px)
 {
     .CandidatMain, .Presentation, .InfosCandidat

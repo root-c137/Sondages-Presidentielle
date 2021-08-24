@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Sondage : {{ Candidat.getFirstname() }}{{ Candidat.getLastname() }}{% endblock %}
+   {% block description %}
+       <meta name="description" content="{% if Candidat.getNbVote() == 0%}0% des francais sont prêts à voter pour {% else %}{% if ((Candidat.getNbVote() / TotalVote) * 100) matches  '/^\\d+$/' %}{{((Candidat.getNbVote() / TotalVote) * 100) }}% des francais sont prêts à voter pour {% else %}{{((Candidat.getNbVote() / TotalVote) * 100)|number_format(2) }}% des francais sont prêts à voter pour {% endif %}{% endif %}
+{{ Candidat.getFirstname() }} {{ Candidat.getLastname }} à l'élection présidentielle de 2022." />{% endblock %}
 
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('CSS/CandidatPage.css') }}"/>
@@ -10,24 +13,26 @@
     <main class="CandidatMain">
 
         <section class="Presentation">
+            <img src="{{ asset('Images/Politic.svg') }}" class="PoliticIcon" />
             <h2 class="NameCandidat">{{ Candidat.getFirstname() }} {{ Candidat.getLastname() }}</h2>
 
             <div class="InfosCandidat">
+                <img src="{{ asset('Images/infos.svg') }}" class="InfosIcon" />
                 <ul>
                     <li><span class="Label">Prénom :</span> {{ Candidat.getFirstname() }}</li>
                     <li><span class="Label">Nom :</span> {{ Candidat.getLastname() }}</li>
-                    <li><span class="Label">Age :</span> {{ Candidat.getAge() }}</li>
+                    <li><span class="Label">Age :</span> {{ Candidat.getAge() }} ans</li>
                     <li><span class="Label">Parti :</span> {{ Candidat.getParti() }}</li>
                 </ul>
             </div>
 
             <div class="Chiffres">
-                <p class="TotalVote">Votes :
+                <p class="TotalVote"><img class="NbVotes" src="{{ asset('Images/votes.svg') }}" /> Votes :
                     {% if Candidat.getNbVote() == 0%}
                         0
                     {% else %}
                         {% if ((Candidat.getNbVote() / TotalVote) * 100) matches  '/^\\d+$/' %}
-                             {{ Candidat.getNbVote() }} ( {{((Candidat.getNbVote() / TotalVote) * 100) }}%)
+                            {{ Candidat.getNbVote() }} (<strong> {{((Candidat.getNbVote() / TotalVote) * 100) }} %</strong> )
                         {% else %}
                             {{ Candidat.getNbVote() }} ( {{((Candidat.getNbVote() / TotalVote) * 100)|number_format(2) }}%)
                        {% endif %}
