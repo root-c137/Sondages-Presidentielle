@@ -16,6 +16,7 @@
 
         <section class="Presentation">
             {% if not app.user %}
+                <img class="IconSignUp" src="{{ asset('Images/inscription.svg') }}" />
                 <p>{{ TxtInscription }}</p>
             {% else %}
                 <p>Vous avez déjà un compte..</p>

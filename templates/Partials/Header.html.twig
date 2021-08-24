@@ -3,7 +3,7 @@
 
         <section class="HeaderNav">
             <h1 class="Title"><a href="{{ path('main') }}">sondagepresidentielle.xyz</a></h1>
-
+            <img src="{{ asset('Images/Icon.svg') }}" id="Logo" />
             {% if not app.user  %}
             <nav class="Menu">
                 <ul>
@@ -24,8 +24,8 @@
 
                 <nav class="NavHeaderCo">
                     <ul>
-                        <li><a class="LinkMenu" href="{{ path('acount') }}">Compte</a></li>
-                        <li><a class="LinkMenu" href="{{ path('app_logout') }}">Déconnexion</a></li>
+                        <li><a class="LinkMenu" href="{{ path('acount') }}"><img src="{{ asset('Images/compte.svg') }}" />Compte</a></li>
+                        <li><a class="LinkMenu" href="{{ path('app_logout') }}"><img src="{{ asset('Images/deconnexion.svg') }}" />Déconnexion</a></li>
                     </ul>
                 </nav>
 

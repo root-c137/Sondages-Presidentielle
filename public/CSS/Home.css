@@ -12,7 +12,11 @@
 .HeadMain
 {
     text-align: center;
-    padding:5rem;
+    padding:10px;
+    line-height: 1.2rem;
+    margin:auto;
+    border:1px solid lightgray;
+    background-color: rgba(57, 62, 70, 0.2);
 }
 
 .CardList
@@ -33,13 +37,14 @@
     padding:2rem;
     font-weight: bold;
 }
+.TicTac
+{
+    width:40px;
+}
 
 @media only screen and (min-width: 150px)
 {
-    .MainHome
-    {
-        padding:0.2rem;
-    }
+
     .CardList
     {
         flex-direction: column;
@@ -54,6 +59,23 @@
     }
 }
 
+
+@media only screen and (min-width: 600px)
+{
+    .HeadMain
+    {
+        width:70%;
+    }
+}
+
+
+@media only screen and (min-width: 1000px)
+{
+    .HeadMain
+    {
+        width:500px;
+    }
+}
 
 @media only screen and (min-width: 1100px)
 {

@@ -1,7 +1,7 @@
 
 let Vote =
     {
-        BaseUrl : "https://sondagepresidentielle.xyz/",
+        BaseUrl : "http://localhost:8000/",
         init : function()
         {
             let ButtonsVote = document.querySelectorAll('.Voter');

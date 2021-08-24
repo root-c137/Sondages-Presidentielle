@@ -5,7 +5,6 @@
     width:100%;
     display: flex;
     margin:auto;
-
 }
 
 .HeaderNav
@@ -18,13 +17,29 @@
     justify-content: center;
 }
 
+#Logo
+{
+    width:50px;
+    margin-top:10px;
+}
+.NavHeaderCo
+{
+    margin-left: 5px;
+}
+.NavHeaderCo ul
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 .Title a
 {
     display: flex;
     color:#eeeeee;
     font-size: 1.2rem;
     text-align: center;
-    margin:1rem;
 }
 
 .HeaderConnexion
@@ -36,11 +51,12 @@
     margin: auto;
 }
 
+
 .HeaderCo
 {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
 }
 
 .MsgVoteActuel
@@ -48,11 +64,30 @@
     margin:1rem;
 }
 
+
+
+.LinkMenu
+{
+    padding:3px;
+}
+.LinkMenu:hover
+{
+    border-bottom:1px solid #89beb3;
+}
+.LinkMenu img
+{
+    width:30px;
+    margin-right:5px;
+}
 .NavHeaderCo li
 {
-    padding:0.4rem;
+    margin-right: 10px;
 }
 
+.Menu .LinkMenu
+{
+    border:none;
+}
 
 @media only screen and (min-width: 150px)
 {

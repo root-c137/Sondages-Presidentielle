@@ -26,8 +26,12 @@
                     {% if Candidat.getNbVote() == 0%}
                         0
                     {% else %}
-                        {{ Candidat.getNbVote() }} ( {{ ((Candidat.getNbVote() / TotalVote) * 100)|number_format(2) }}%)
-                    {% endif %}
+                        {% if ((Candidat.getNbVote() / TotalVote) * 100) matches  '/^\\d+$/' %}
+                             {{ Candidat.getNbVote() }} ( {{((Candidat.getNbVote() / TotalVote) * 100) }}%)
+                        {% else %}
+                            {{ Candidat.getNbVote() }} ( {{((Candidat.getNbVote() / TotalVote) * 100)|number_format(2) }}%)
+                       {% endif %}
+                   {% endif %}
                 </p>
 
                 <p>
@@ -35,7 +39,11 @@
                     {% if MoyenneAge == 0 %}
                           0
                     {% else %}
-                         {{ MoyenneAge }} ans
+                        {% if MoyenneAge matches '/^\\d+$/' %}
+                            {{ MoyenneAge }} ans
+                        {% else %}
+                         {{ MoyenneAge|number_format(2) }} ans
+                        {% endif %}
                     {% endif %}
                 </p>
             </div>

@@ -25,6 +25,11 @@
     margin:1rem;
 }
 
+.IconSignUp
+{
+    margin:auto;
+}
+
 @media only screen and (min-width: 150px)
 {
     .Inscription, .Presentation
